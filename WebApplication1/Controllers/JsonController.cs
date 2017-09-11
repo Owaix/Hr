@@ -11,7 +11,7 @@ namespace WebApplication1.Controllers
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public DateTime JoiningDates { get; set; }
+        public DateTime JoiningDate { get; set; }
         public int Age { get; set; }
     }
     public class JsonController : ApiController
