@@ -1,4 +1,5 @@
-﻿using Service;
+﻿using DataAccess;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,11 +10,11 @@ namespace CF.Repo
 {
     public class Repository<T> : IRepository<T>
     {
-        private readonly CurdDbContext context;
+        private readonly HRDbContext context;
         private IDbSet<T> entities;
         string errorMessage = string.Empty;
 
-        public Repository(CurdDbContext context)
+        public Repository(HRDbContext context)
         {
             this.context = context;
         }
