@@ -9,7 +9,9 @@ namespace DataAccess
 {
     public class HRDbContext : DbContext
     {
-        public IDbSet<T> Entity;
-
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        {
+            return base.Set<TEntity>();
+        }
     }
 }

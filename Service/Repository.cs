@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CF.Repo
 {
-    public class Repository<T> : IRepository<T>
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly HRDbContext context;
         private IDbSet<T> entities;
