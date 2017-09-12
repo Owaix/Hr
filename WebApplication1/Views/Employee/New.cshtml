@@ -1,7 +1,10 @@
-﻿@model WebApplication1.ViewModel.Employee
+﻿@using Microsoft.AspNet.Identity;
+@model WebApplication1.ViewModel.Employee
+
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @User.Identity.GetUserId();
 }
 
 <div class="row">
