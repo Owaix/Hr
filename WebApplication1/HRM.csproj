@@ -1961,6 +1961,7 @@
     <Content Include="Template\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Template\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Employee\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
