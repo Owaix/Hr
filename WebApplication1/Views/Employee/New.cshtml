@@ -13,69 +13,100 @@
             </header>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">First Name:</label>
-                            <input type="text" class="form-control" id="txtFirst">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Middle Name:</label>
-                            <input type="text" class="form-control" id="txtMidle">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Last Name:</label>
-                            <input type="text" class="form-control" id="txtLAst">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">SurName:</label>
-                            <input type="text" class="form-control" id="txtSurname">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Date Of Birth:</label>
-                            <input type="text" class="form-control" id="txtDOB">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">CNIC:</label>
-                            <input type="text" class="form-control" id="txtCNIC">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Religion:</label>
-                            <input type="text" class="form-control" id="txtReligion">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Domicile:</label>
-                            <input type="text" class="form-control" id="txtDomicile">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="form-group">
-                            <label for="usr">Address:</label>
-                            <input type="text" class="form-control" id="txtAddress">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="usr">Country:</label>
-                            @Html.DropDownListFor(x => x.Country, Model.Country as SelectList, new { @class = "form-control" })
-                        </div>
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <header class="panel-heading tab-bg-primary ">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#home">Home</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#about">About</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#profile">Profile</a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </header>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane active">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">First Name:</label>
+                                                    <input type="text" class="form-control" id="txtFirst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Middle Name:</label>
+                                                    <input type="text" class="form-control" id="txtMidle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Last Name:</label>
+                                                    <input type="text" class="form-control" id="txtLAst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">SurName:</label>
+                                                    <input type="text" class="form-control" id="txtSurname">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Date Of Birth:</label>
+                                                    <input type="text" class="form-control" id="txtDOB">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">CNIC:</label>
+                                                    <input type="text" class="form-control" id="txtCNIC">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Religion:</label>
+                                                    <input type="text" class="form-control" id="txtReligion">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Domicile:</label>
+                                                    <input type="text" class="form-control" id="txtDomicile">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="form-group">
+                                                    <label for="usr">Address:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Country:</label>
+                                                    @Html.DropDownListFor(x => x.Country, Model.Country as SelectList, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="about" class="tab-pane">About</div>
+                                    <div id="profile" class="tab-pane">Profile</div>
+                                    <div id="contact" class="tab-pane">Contact</div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
