@@ -1,4 +1,4 @@
-﻿
+﻿@model WebApplication1.ViewModel.Employee
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
         <!--notification start-->
         <section class="panel">
             <header class="panel-heading">
-                New Employee
+                Basic Info
             </header>
             <div class="panel-body">
                 <div class="row">
@@ -38,7 +38,52 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="usr">Date Of Birth:</label>
+                            <input type="text" class="form-control" id="txtDOB">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="usr">CNIC:</label>
+                            <input type="text" class="form-control" id="txtCNIC">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="usr">Religion:</label>
+                            <input type="text" class="form-control" id="txtReligion">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="usr">Domicile:</label>
+                            <input type="text" class="form-control" id="txtDomicile">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="usr">Address:</label>
+                            <input type="text" class="form-control" id="txtAddress">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="usr">Country:</label>
+                            @Html.DropDownListFor(x => x.Country, Model.Country as SelectList, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $("#txtDOB").datepicker();
+    })
+</script>
