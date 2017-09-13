@@ -110,7 +110,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">State:</label>
-                                                    <input type="text" class="form-control" id="txtAddress">
+                                                    <input type="text" class="form-control" id="txtState">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -122,7 +122,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Postal Code:</label>
-                                                    <input type="text" class="form-control" id="txtAddress">
+                                                    <input type="text" class="form-control" id="txtPostal">
                                                 </div>
                                             </div>
                                             <div class="col-md-1">
@@ -135,20 +135,27 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Home Phone:</label>
-                                                    <input type="text" class="form-control" id="txtAddress">
+                                                    <input type="text" class="form-control" id="txtPhone">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Mobile Phone:</label>
-                                                    <input type="text" class="form-control" id="txtAddress">
+                                                    <input type="text" class="form-control" id="txtMobile">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Email Address:</label>
-                                                    <input type="text" class="form-control" id="txtAddress">
+                                                    <input type="text" class="form-control" id="txtMail">
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="button" class="btn btn-success btn-lg" id="btnSubmit" value="Submit" />
                                             </div>
                                         </div>
                                     </div>
@@ -167,13 +174,12 @@
 <script>
     $(document).ready(function () {
         $("#txtDOB").datepicker();
-
-        function Validate(textbox) {
-            if (textbox == null || textbox == "")
-                return 0;
-        }
-
-        Validate($('#txtAddress').val());
-
+        
+        $('#btnSubmit').click(function () {
+            var val = $('#txtFirst').val();
+            if (IsEmpty(val) == 0) {
+              //  $(this).attr("style","border-color:red")
+            }
+        });
     });
 </script>

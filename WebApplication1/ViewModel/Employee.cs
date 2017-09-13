@@ -13,5 +13,6 @@ namespace WebApplication1.ViewModel
         public String Name { get; set; }
         public SelectList Country { get; set; }
         public SelectList Gender { get; set; }
+        public int Page { get; set; }
     }
 }

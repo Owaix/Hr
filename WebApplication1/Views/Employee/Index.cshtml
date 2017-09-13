@@ -1,4 +1,6 @@
-﻿
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<WebApplication1.ViewModel.Employee>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,8 +32,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    @{
-                                        for (int i = 0; i < 10; i++) {
+                                @{
+                                    for (int i = 0; i < 10; i++)
+                                    {
                                         <tr>
                                             <td>DUMMY</td>
                                             <td>DUMMY</td>
@@ -45,9 +48,15 @@
                                                 </i>
                                             </td>
                                         </tr>}
-                                    }
+                                }
                             </tbody>
                         </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new
+                       {
+                           page,
+                           searchBy = Request.QueryString["searchBy"],
+                           search = Request.QueryString["search"]
+                       }));
                     </div>
                 </div>
             </div>

@@ -16,7 +16,6 @@ namespace WebApplication1.Controllers
         }
         public ActionResult New()
         {
-
             Employee emp = new Employee();
             List<Country> list = new List<Country>();
             list.Add(new Country { Id = 1, Name = "Pakistan" });
@@ -24,6 +23,7 @@ namespace WebApplication1.Controllers
             list.Add(new Country { Id = 3, Name = "China" });
             list.Add(new Country { Id = 4, Name = "USA" });
             emp.Country = new SelectList(list, "Id", "Name");
+
             return View(emp);
         }
     }
