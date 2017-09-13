@@ -32,7 +32,7 @@
                                         <a data-toggle="tab" href="#home">Personal</a>
                                     </li>
                                     <li class="">
-                                        <a data-toggle="tab" href="#about">About</a>
+                                        <a data-toggle="tab" href="#about">Academic</a>
                                     </li>
                                     <li class="">
                                         <a data-toggle="tab" href="#profile">Profile</a>
@@ -155,11 +155,38 @@
                                             <div class="col-md-9">
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="button" class="btn btn-success btn-lg" id="btnSubmit" value="Submit" />
+                                                <input type="button" class="btn btn-success btn-group-lg" id="btnSubmit" value="Submit" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="about" class="tab-pane">About</div>
+                                    <div id="about" class="tab-pane">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">First Name:</label>
+                                                    <input type="text" class="form-control" id="txtFirst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Father Name:</label>
+                                                    <input type="text" class="form-control" id="txtMidle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Sur Name:</label>
+                                                    <input type="text" class="form-control" id="txtLAst">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Gender:</label>
+                                                    @Html.DropDownListFor(x => x.Gender, domainsList, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div id="profile" class="tab-pane">Profile</div>
                                     <div id="contact" class="tab-pane">Contact</div>
                                 </div>
@@ -174,11 +201,13 @@
 <script>
     $(document).ready(function () {
         $("#txtDOB").datepicker();
-        
+
         $('#btnSubmit').click(function () {
+
+
             var val = $('#txtFirst').val();
             if (IsEmpty(val) == 0) {
-              //  $(this).attr("style","border-color:red")
+                //  $(this).attr("style","border-color:red")
             }
         });
     });
