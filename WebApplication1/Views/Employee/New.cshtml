@@ -1,10 +1,18 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using System.Web.UI.WebControls;
+
 @model WebApplication1.ViewModel.Employee
 
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
     @User.Identity.GetUserId();
+
+    var domainsList = new SelectList(new[]
+            {
+                new SelectListItem { Text = "Male", Value = "1", Selected = true },
+                new SelectListItem { Text = "Female", Value = "2"},
+            }, "Value", "Text");
 }
 
 <div class="row">
@@ -21,7 +29,7 @@
                             <header class="panel-heading tab-bg-primary ">
                                 <ul class="nav nav-tabs">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#home">Home</a>
+                                        <a data-toggle="tab" href="#home">Personal</a>
                                     </li>
                                     <li class="">
                                         <a data-toggle="tab" href="#about">About</a>
@@ -37,6 +45,7 @@
                             <div class="panel-body">
                                 <div class="tab-content">
                                     <div id="home" class="tab-pane active">
+                                        <br />
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -46,20 +55,20 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="usr">Middle Name:</label>
+                                                    <label for="usr">Father Name:</label>
                                                     <input type="text" class="form-control" id="txtMidle">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="usr">Last Name:</label>
+                                                    <label for="usr">Sur Name:</label>
                                                     <input type="text" class="form-control" id="txtLAst">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="usr">SurName:</label>
-                                                    <input type="text" class="form-control" id="txtSurname">
+                                                    <label for="usr">Gender:</label>
+                                                    @Html.DropDownListFor(x => x.Gender, domainsList, new { @class = "form-control" })
                                                 </div>
                                             </div>
                                         </div>
@@ -90,9 +99,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="usr">Address:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">State:</label>
                                                     <input type="text" class="form-control" id="txtAddress">
                                                 </div>
                                             </div>
@@ -100,6 +117,37 @@
                                                 <div class="form-group">
                                                     <label for="usr">Country:</label>
                                                     @Html.DropDownListFor(x => x.Country, Model.Country as SelectList, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Postal Code:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-2">
+                                                @*<img style="border:1px solid;width:200px" src="~/Img/avatar1.jpg" />*@
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Home Phone:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Mobile Phone:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="usr">Email Address:</label>
+                                                    <input type="text" class="form-control" id="txtAddress">
                                                 </div>
                                             </div>
                                         </div>
@@ -119,5 +167,13 @@
 <script>
     $(document).ready(function () {
         $("#txtDOB").datepicker();
-    })
+
+        function Validate(textbox) {
+            if (textbox == null || textbox == "")
+                return 0;
+        }
+
+        Validate($('#txtAddress').val());
+
+    });
 </script>

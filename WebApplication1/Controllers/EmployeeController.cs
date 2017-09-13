@@ -16,6 +16,7 @@ namespace WebApplication1.Controllers
         }
         public ActionResult New()
         {
+
             Employee emp = new Employee();
             List<Country> list = new List<Country>();
             list.Add(new Country { Id = 1, Name = "Pakistan" });
