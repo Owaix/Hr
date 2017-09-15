@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using DataAccess.Models;
 using System.Threading.Tasks;
 
 namespace DataAccess
@@ -12,10 +13,10 @@ namespace DataAccess
         public HRDbContext() : base("name=HRMSCOnStr")
         {
         }
-
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
-        {
-            return base.Set<TEntity>();
-        }
+        public DbSet<Employee> employee { get; set; }
+        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        //{
+        //    return base.Set<TEntity>();
+        //}
     }
 }

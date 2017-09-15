@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assets\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -222,6 +226,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\IAutoMap.cs" />
+    <Compile Include="Mappings\ModelMapping.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -230,6 +236,9 @@
     <Compile Include="ViewModel\Employee.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AutoMapper.dll" />
+    <Content Include="Assets\AutoMapper.WinRT.dll" />
+    <Content Include="Assets\AutoMapper.WP8.dll" />
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
     <Content Include="Assets\chart-master\Chart.min.js" />
