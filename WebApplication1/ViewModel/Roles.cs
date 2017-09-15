@@ -5,16 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Models
+namespace WebApplication1.ViewModel
 {
-    class Employee
+    public class Roles
     {
         [Key]
         public int Id { get; set; }
         public String Name { get; set; }
-        public String Department { get; set; }
-        public String Designation { get; set; }
-        public Nullable<float> Salary { get; set; }
-        public Nullable<int> Age { get; set; }
     }
 }

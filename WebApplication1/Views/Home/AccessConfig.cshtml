@@ -1,0 +1,41 @@
+﻿
+@{
+    @model WebApplication1.ViewModel.FeatureRoles
+    ViewBag.Title = "AccessConfig";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            @foreach (var item in Model.Role)
+            {
+                <th>@item.Name</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model.Feature)
+            {
+            <tr>
+                <td class="col-md-2">@item.Name</td>
+                @foreach (var role in Model.Role)
+                {
+                    <td class="tds"><input id="cbChk" type="checkbox" value="@(item.id + "_"+role.Id)" /></td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+    <input type="button" value="Button" id="btn" />
+    <script>
+        $('#btn').click(function () {
+            $('.table td input:checked').each(function (index, row) {
+                var txt = $(row).val();
+                var arr = txt.split('_');
+                console.log(arr[0] + '____' + arr[1]);
+            });
+        });
+    </script>

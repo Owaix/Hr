@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    class Employee
+    public class Features : BaseEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int id { get; set; }
         public String Name { get; set; }
-        public String Department { get; set; }
-        public String Designation { get; set; }
-        public Nullable<float> Salary { get; set; }
-        public Nullable<int> Age { get; set; }
+        public Nullable<int> SubMenuId { get; set; }
     }
 }

@@ -1,10 +1,18 @@
 ﻿@using PagedList.Mvc;
 @using PagedList;
-@model  List<WebApplication1.ViewModel.EmployeeVM>
+@model IPagedList<WebApplication1.ViewModel.Employee>
 @{
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*@Html.ReportViewer();*@
+
+<style>
+    .pagination-container {
+        text-align: center;
+    }
+</style>
 
 <div class="row">
     <div class="col-lg-12">
@@ -20,13 +28,23 @@
                 </div>
                 <br />
                 <div class="row">
+                    <div class="col-md-9"></div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="txtdptSrch" placeholder="Search" name="search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="btnSrchDept" type="submit"><i class="fa fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
                     <div class="col-md-12">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th><i class="fa fa-bank"></i>  DUMMY</th>
-                                    <th>DUMMY</th>
-                                    <th>DUMMY</th>
+                                    <th><i class="fa fa-bank"></i>  ID</th>
+                                    <th>NAME</th>
+                                    <th>SALARY</th>
                                     <th>DUMMY</th>
                                     <th>DUMMY</th>
                                 </tr>
@@ -36,13 +54,13 @@
                                     foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.Name</td>
-                                            <td>@item.Designation</td>
-                                            <td>@item.Department</td>
-                                            <td>@item.Salary</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
                                             <td>
                                                 <i class="btn-group">
-                                                    <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                                    <a class="btn btn-primary" id="lnkEdit" href="#"><i class="icon_plus_alt2"></i></a>
                                                     <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
                                                     <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                                                 </i>
@@ -50,16 +68,37 @@
                                         </tr>}
                                 }
                             </tbody>
-                            @*</table>
-                                     @Html.PagedListPager(Model, page => Url.Action("Index", new
-                                {
-                                    page,
-                                    searchBy = Request.QueryString["searchBy"],
-                                    search = Request.QueryString["search"]
-                                }));*@
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new
+                       {
+                           page,
+                           searchBy = Request.QueryString["searchBy"],
+                           search = Request.QueryString["search"]
+                       }));
                     </div>
                 </div>
             </div>
         </section>
     </div>
 </div>
+<script>
+    $("#lnkEdit").click(function () {
+        $("#myModal").modal();
+        $("#modelBody").html("Modal Has Clicked");
+    });
+
+    $("#btnSrchDept").click(function () {
+        var val = $('#txtdptSrch').val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SearchList", "Employee")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ Dept: val }),
+            success: function (datas) {
+                alert('Rows saved!');
+            },
+        });
+    });
+
+</script>
