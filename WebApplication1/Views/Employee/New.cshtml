@@ -241,7 +241,7 @@
         });
 
         $("#tbl").on("click", "a#lnkCancel", function () {
-            alert("dsadsadsdsa");
+                $(this).closest("Tr").remove();
         });
 
         $('#btnSubmit').click(function () {
