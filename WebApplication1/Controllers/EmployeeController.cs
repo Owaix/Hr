@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
                 var institute = Ins[i];
                 var degree = Deg[i];
                 var year = Year[i];
-
+                //Save
 
             }
             
