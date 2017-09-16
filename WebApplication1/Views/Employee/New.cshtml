@@ -199,8 +199,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td><input type="text" class="form-control" id="txtIns1"></td>
-                                                        <td><input type="text" class="form-control" id="txtPhone"></td>
-                                                        <td><input type="text" class="form-control" id="txtPhone"></td>
+                                                        <td><input type="text" class="form-control" id="txtDeg1"></td>
+                                                        <td><input type="text" class="form-control" id="txtYear1"></td>
                                                         @*<td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>*@
                                                     </tr>
                                                 </table>
@@ -236,8 +236,8 @@
         $('#lnkAdd').click(function () {
             $('#tbl').append("<tr id='dynTr'>" +
                                                         "<td><input type='text' class='form-control' id='txtIns" + id + "'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtDeg'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtYear'></td>" +
+                                                        "<td><input type='text' class='form-control' id='txtDeg" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control' id='txtYear" + id + "'></td>" +
                                                         "<td><a id='lnkCancel' class='btn btn-danger btn-sm' href='#'><i class='icon_close_alt2'></i></a></td>" +
                                                     "</tr>");
             id++;
@@ -248,11 +248,23 @@
         });
 
         $("#lnkSave").click(function () {
-            var msg = '';
-            for (i = 1; i < 6; i++) {
-                msg += "\n Textbox #" + i + " : " + $('#txtIns' + i).val();
+            var ins = '';
+            var deg = '';
+            var yr = '';
+            var arr = [];
+            var arr2 = [];
+            var arr3 = [];
+            for (i = 1; i < id; i++) {
+                ins = "\n Textbox #" + i + " : " + $('#txtIns' + i).val();
+                arr.push(ins);
+                deg = "\n Textbox #" + i + " : " + $('#txtDeg' + i).val();
+                arr2.push(deg);
+                yr = "\n Textbox #" + i + " : " + $('#txtYear' + i).val();
+                arr3.push(yr);
             }
-            alert(msg);
+            alert(arr);
+            alert(arr2);
+            alert(arr3);
         });
 
         //$('#btnSubmit').click(function () {
