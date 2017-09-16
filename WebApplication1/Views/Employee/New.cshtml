@@ -265,34 +265,17 @@
             alert(arr);
             alert(arr2);
             alert(arr3);
-        });
-
-        //$('#btnSubmit').click(function () {
-        //    var val = $('#txtFirst').val();
-        //    if (IsEmpty(val) == 0) {
-        //        //  $(this).attr("style","border-color:red")
-        //    }
-        //});
-
-
-        $('#lnkSaves').on('click', function (index) {
-            var arr = [];
-            $("#dynTr").each(function () {
-                var text = $(this).find('input[type=text]').eq(index).val();
-                arr.push({
-                    text: text
-                });
-            });
 
             $.ajax({
                 type: "POST",
                 url: 'Employee/New/',
-                data: { batch: arr },
+                data: { batch1: arr, batch2: arr2, batch3: arr3 },
                 async: false,
                 success: function (data) {
                     alert('Rows saved!');
                 }
             });
+
         });
     });
 </script>
