@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    class Employee
+   public class Employee : BaseEntity
     {
         [Key]
         public int Id { get; set; }

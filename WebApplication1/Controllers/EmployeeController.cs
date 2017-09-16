@@ -8,8 +8,6 @@ using PagedList;
 using System.Web;
 using AutoMapper;
 using System.Web.Mvc;
-using AutoMapper;
-using DataAccess.ViewModel;
 using WebApplication1.ViewModel;
 using System.IO;
 using System.Linq;
@@ -50,7 +48,8 @@ namespace WebApplication1.Controllers
             list.Add(new Country { Id = 2, Name = "India" });
             list.Add(new Country { Id = 3, Name = "China" });
             list.Add(new Country { Id = 4, Name = "USA" });
-            emp.Country = new SelectList(list, "Id", "Name");
+            // emp.Country = new SelectList(list, "Id", "Name");
+            return View();
         }
 
         [HttpPost]
