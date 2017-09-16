@@ -233,13 +233,16 @@
 
         var id = 2;
         $('#lnkAdd').click(function () {
-            $('#tbl').append("<tr id='dynTr'>" +
+            var count = $('#tbl tr#dynTr').length;
+            if (count < 4) {
+                $('#tbl').append("<tr id='dynTr'>" +
                                                         "<td><input type='text' class='form-control' id='txtIns" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control' id='txtDeg" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control' id='txtYear" + id + "'></td>" +
                                                         "<td><a id='lnkCancel' class='btn btn-danger btn-sm' href='#'><i class='fa fa-times'></i></a></td>" +
                                                     "</tr>");
-            id++;
+                id++;
+            }
         });
 
         $("#tbl").on("click", "a#lnkCancel", function () {
