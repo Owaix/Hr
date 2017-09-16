@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             return View(emp);
         }
         [HttpPost]
-        public ActionResult New(String[] batch)
+        public ActionResult New(String[] Ins, String[] Deg, String[] Year)
         {
             return View();
         }

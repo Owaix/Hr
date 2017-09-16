@@ -255,24 +255,26 @@
             var arr2 = [];
             var arr3 = [];
             for (i = 1; i < id; i++) {
-                ins = "\n Textbox #" + i + " : " + $('#txtIns' + i).val();
+
+                ins = $('#txtIns' + i).val();
                 arr.push(ins);
-                deg = "\n Textbox #" + i + " : " + $('#txtDeg' + i).val();
+                deg = $('#txtDeg' + i).val();
                 arr2.push(deg);
-                yr = "\n Textbox #" + i + " : " + $('#txtYear' + i).val();
+                yr = $('#txtYear' + i).val();
                 arr3.push(yr);
             }
-            alert(arr);
-            alert(arr2);
-            alert(arr3);
 
             $.ajax({
                 type: "POST",
-                url: 'Employee/New/',
-                data: { batch1: arr, batch2: arr2, batch3: arr3 },
-                async: false,
+                url: '@Url.Action("New", "Employee")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ Ins: arr, Deg: arr2, Year: arr3 }),
                 success: function (data) {
                     alert('Rows saved!');
+                },
+                error: function () {
+                    alert("An error has occured!!!");
                 }
             });
 
