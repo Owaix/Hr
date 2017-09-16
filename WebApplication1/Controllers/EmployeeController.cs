@@ -29,6 +29,15 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult New(String[] Ins, String[] Deg, String[] Year)
         {
+            for(int i=0;i<Ins.Length;i++)
+            {
+                var institute = Ins[i];
+                var degree = Deg[i];
+                var year = Year[i];
+
+
+            }
+            
             return View();
         }
     }
