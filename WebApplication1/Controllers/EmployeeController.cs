@@ -26,6 +26,11 @@ namespace WebApplication1.Controllers
 
             return View(emp);
         }
+        [HttpPost]
+        public ActionResult New(String[] batch)
+        {
+            return View();
+        }
     }
     public class Country
     {
