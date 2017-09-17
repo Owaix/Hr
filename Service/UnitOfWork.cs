@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CF.Repo;
 using DataAccess;
 using System.Data.Entity;
 
 namespace Service
 {
-    class UnitOfWork : IUnitOfWork
+   public class UnitOfWork : IUnitOfWork
     {
         //   IDbSet<T> entity;
         private Dictionary<string, object> repositories;

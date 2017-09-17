@@ -1,5 +1,4 @@
-﻿using CF.Repo;
-using DataAccess;
+﻿using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    interface IUnitOfWork : IDisposable
+   public interface IUnitOfWork : IDisposable
     {
         void Save();
         Repository<T> Repository<T>() where T : BaseEntity;

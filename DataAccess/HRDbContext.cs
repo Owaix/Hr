@@ -9,6 +9,10 @@ namespace DataAccess
 {
     public class HRDbContext : DbContext
     {
+        public HRDbContext() : base("name=HRMSCOnStr")
+        {
+        }
+
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {
             return base.Set<TEntity>();
