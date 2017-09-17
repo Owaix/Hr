@@ -669,6 +669,7 @@
     <Content Include="Img\Spain.png" />
     <Content Include="Img\user.jpg" />
     <Content Include="Img\user22.png" />
+    <Content Include="InsertAutoGentxt.html" />
     <Content Include="NiceAdmin\404.html" />
     <Content Include="NiceAdmin\assets\chart-master\.gitignore" />
     <Content Include="NiceAdmin\assets\chart-master\Chart.js" />

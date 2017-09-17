@@ -188,29 +188,31 @@
                                             </div>
                                         </div>
                                         <br />
-                                        <div class="row">
+                                        <div id="TableRow" class="row">
                                             <div class="col-md-12">
                                                 <table id="tbl" class="table">
                                                     <tr>
                                                         <th>Institute</th>
                                                         <th>Degree</th>
                                                         <th>Year</th>
-                                                        <th></th>
+                                                        <th><a id="lnkAdd" class="btn btn-primary btn-md" href="#"><i class="fa fa-plus"></i>  Add Row</a></th>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="text" class="form-control" id="txtPhone"></td>
-                                                        <td><input type="text" class="form-control" id="txtPhone"></td>
-                                                        <td><input type="text" class="form-control" id="txtPhone"></td>
-                                                        <td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>
+                                                        <td><input type="text" class="form-control" id="txtIns1"></td>
+                                                        <td><input type="text" class="form-control" id="txtDeg1"></td>
+                                                        <td><input type="text" class="form-control" id="txtYear1"></td>
+                                                        @*<td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>*@
                                                     </tr>
                                                 </table>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-11">
+                                            <div class="col-md-10">
                                             </div>
                                             <div class="col-md-1">
-                                                <a id="lnkAdd" class="btn btn-default btn-lg" href="#"><i class="icon_plus_alt2"></i></a>
+                                                <a id="lnkSave" class="btn btn-success btn-lg" href="#"><i class="fa fa-save"></i>&nbspSave</a>
+                                            </div>
+                                            <div class="col-md-1">
                                             </div>
                                         </div>
                                     </div>
@@ -229,20 +231,59 @@
     $(document).ready(function () {
         $("#txtDOB").datepicker();
 
+        var id = 2;
         $('#lnkAdd').click(function () {
-            $('#tbl').append("<tr>" +
-                                                        "<td><input type='text' class='form-control' id='txtPhone'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtPhone'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtPhone'></td>" +
-                                                        "<td><a class='btn btn-danger btn-sm' href='#'><i class='icon_close_alt2'></i></a></td>" +
+            var count = $('#tbl tr#dynTr').length;
+            if (count < 4) {
+                $('#tbl').append("<tr id='dynTr'>" +
+                                                        "<td><input type='text' class='form-control' id='txtIns" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control' id='txtDeg" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control' id='txtYear" + id + "'></td>" +
+                                                        "<td><a id='lnkCancel' class='btn btn-danger btn-sm' href='#'><i class='fa fa-times'></i></a></td>" +
                                                     "</tr>");
+                id++;
+            }
         });
 
-        $('#btnSubmit').click(function () {
-            var val = $('#txtFirst').val();
-            if (IsEmpty(val) == 0) {
-                //  $(this).attr("style","border-color:red")
+        $("#tbl").on("click", "a#lnkCancel", function () {
+            $(this).closest("Tr").remove();
+        });
+
+        $("#lnkSave").click(function () {
+            if ($('#txtIns1').val() == "") {
+                $('#txtIns1').attr("style", "border-color: red");
+                return false;
             }
+
+            var ins = '';
+            var deg = '';
+            var yr = '';
+            var arr = [];
+            var arr2 = [];
+            var arr3 = [];
+            for (i = 1; i < id; i++) {
+
+                ins = $('#txtIns' + i).val();
+                arr.push(ins);
+                deg = $('#txtDeg' + i).val();
+                arr2.push(deg);
+                yr = $('#txtYear' + i).val();
+                arr3.push(yr);
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("New", "Employee")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ Ins: arr, Deg: arr2, Year: arr3 }),
+                success: function (datas) {
+                    alert('Rows saved!');
+                },
+                error: function () {
+                    alert("An error has occured!!!");
+                }
+            });
         });
     });
 </script>
