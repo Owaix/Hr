@@ -1974,6 +1974,7 @@
     <Content Include="Template\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Employee\New.cshtml" />
+    <Content Include="Views\Employee\_Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

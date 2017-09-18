@@ -36,13 +36,13 @@
                                     foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.Id</td>
+                                            <td class="col-md-2">@item.Id</td>
                                             <td>@item.Name</td>
                                             <td>@item.Salary</td>
                                             <td>DUMMY</td>
                                             <td>
                                                 <i class="btn-group">
-                                                    <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                                    <a class="btn btn-primary" id="lnkEdit" href="#"><i class="icon_plus_alt2"></i></a>
                                                     <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
                                                     <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                                                 </i>
@@ -51,6 +51,7 @@
                                 }
                             </tbody>
                         </table>
+                        @Html.Partial("_Edit", Model);
                         @*@Html.PagedListPager(Model, page => Url.Action("Index", new
                             {
                                 page,
@@ -63,3 +64,8 @@
         </section>
     </div>
 </div>
+<script>
+    $("#lnkEdit").click(function () {
+        $("#myModal").modal();
+    });
+</script>
