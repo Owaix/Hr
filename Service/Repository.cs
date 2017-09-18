@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 
-namespace CF.Repo
+namespace Service
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
@@ -106,7 +106,6 @@ namespace CF.Repo
         {
             this.Entities.Add(entity);
         }
-
         public void Attach(T entity)
         {
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess;
+using Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +11,15 @@ namespace WebApplication1.Controllers
 {
     public class EmployeeController : Controller
     {
+        // HRDbContext db = new HRDbContext();
+        private Repository<Employee> EmpRep;
+        private UnitOfWork unitOfWork;
+
+        public EmployeeController()
+        {
+            unitOfWork = new UnitOfWork();
+            EmpRep = unitOfWork.Repository<Employee>();
+        }
         // GET: Employee
         public EmployeeController()
         {
@@ -18,8 +29,10 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var item = EmpRep.GetAll();
+            return View(item);
         }
+
         public ActionResult New()
         {
             Employee emp = new Employee();
