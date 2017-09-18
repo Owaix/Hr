@@ -3,6 +3,8 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PagedList.Mvc;
+using PagedList;
 using System.Web;
 using AutoMapper;
 using System.Web.Mvc;
@@ -30,6 +32,13 @@ namespace WebApplication1.Controllers
             emp.Add(new EmployeeVM { Id = 5, Name = "dxzvd", Department = "HR", Salary = 4334 });
             emp.Add(new EmployeeVM { Id = 6, Name = "ererr", Department = "HR", Salary = 4334 });
             emp.Add(new EmployeeVM { Id = 7, Name = "rewtg", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 8, Name = "Owais", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 9, Name = "dasdd", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 10, Name = "szdsa", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 11, Name = "weweq", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 12, Name = "dxzvd", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 13, Name = "ererr", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 14, Name = "rewtg", Department = "HR", Salary = 4334 });
         }
 
         public ActionResult Index()
