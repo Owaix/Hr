@@ -10,6 +10,12 @@ namespace WebApplication1.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
+        public EmployeeController()
+        {
+            List<Employee> emp = new List<Employee>();
+            emp.Add(new Employee { Id = 1, Name = "Owais", Gender , Country = "PAkistan" });
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -29,7 +35,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult New(String[] Ins, String[] Deg, String[] Year)
         {
-            for(int i=0;i<Ins.Length;i++)
+            for (int i = 0; i < Ins.Length; i++)
             {
                 var institute = Ins[i];
                 var degree = Deg[i];
@@ -37,7 +43,7 @@ namespace WebApplication1.Controllers
                 //Save
 
             }
-            
+
             return View();
         }
     }
