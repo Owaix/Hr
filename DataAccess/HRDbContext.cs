@@ -9,7 +9,7 @@ namespace DataAccess
 {
     public class HRDbContext : DbContext
     {
-        public HRDbContext() : base("name=HRMSCOnStr")
+        public HRDbContext()// : base("name=HRMSCOnStr")
         {
         }
 

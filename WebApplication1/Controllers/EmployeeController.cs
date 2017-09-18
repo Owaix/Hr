@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using AutoMapper;
 using System.Web.Mvc;
 using WebApplication1.ViewModel;
 
@@ -12,30 +13,35 @@ namespace WebApplication1.Controllers
     public class EmployeeController : Controller
     {
         // HRDbContext db = new HRDbContext();
-        private Repository<Employee> EmpRep;
+        private Repository<EmployeeVM> EmpRep;
+        List<EmployeeVM> emp;
         private UnitOfWork unitOfWork;
 
         public EmployeeController()
         {
             unitOfWork = new UnitOfWork();
-            EmpRep = unitOfWork.Repository<Employee>();
-        }
-        // GET: Employee
-        public EmployeeController()
-        {
-            List<Employee> emp = new List<Employee>();
-            emp.Add(new Employee { Id = 1, Name = "Owais", Gender , Country = "PAkistan" });
+            EmpRep = unitOfWork.Repository<EmployeeVM>();
+
+            emp = new List<EmployeeVM>();
+            emp.Add(new EmployeeVM { Id = 1, Name = "Owais", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 2, Name = "dasdd", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 3, Name = "szdsa", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 4, Name = "weweq", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 5, Name = "dxzvd", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 6, Name = "ererr", Department = "HR", Salary = 4334 });
+            emp.Add(new EmployeeVM { Id = 7, Name = "rewtg", Department = "HR", Salary = 4334 });
         }
 
         public ActionResult Index()
         {
-            var item = EmpRep.GetAll();
+            // var item = EmpRep.GetAll();
+            var item = Mapper.Map<List<EmployeeVM>>(emp);
             return View(item);
         }
 
         public ActionResult New()
         {
-            Employee emp = new Employee();
+            EmployeeVM emp = new EmployeeVM();
             List<Country> list = new List<Country>();
             list.Add(new Country { Id = 1, Name = "Pakistan" });
             list.Add(new Country { Id = 2, Name = "India" });
@@ -54,7 +60,6 @@ namespace WebApplication1.Controllers
                 var degree = Deg[i];
                 var year = Year[i];
                 //Save
-
             }
 
             return View();
