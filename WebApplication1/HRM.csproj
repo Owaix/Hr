@@ -240,6 +240,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1193,7 +1194,6 @@
     <Content Include="NiceAdmin\profile.html" />
     <Content Include="NiceAdmin\readme.txt" />
     <Content Include="NiceAdmin\widgets.html" />
-    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\additional-methods.min.js" />
     <Content Include="Scripts\bootstrap-switch.js" />
     <Content Include="Scripts\bootstrap-wysiwyg-custom.js" />

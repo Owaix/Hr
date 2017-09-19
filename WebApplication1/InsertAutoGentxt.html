@@ -18,9 +18,30 @@
 
         $(document).ready(function () {
 
+
+
             var counter = 2;
 
             $("#addButton").click(function () {
+
+
+                //Consume Json Web Service
+                $.ajax({
+                    type: "POST",
+                    url: 'http://localhost:42030/api/json/',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (datas) {
+                        var JsonData = JSON.stringify(datas);
+                    },
+                    error: function () {
+                        alert("An error has occured!!!");
+                    }
+                });
+
+
+
+
 
                 if (counter > 10) {
                     alert("Only 10 textboxes allow");

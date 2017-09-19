@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
 @using System.Web.UI.WebControls;
 
-@model WebApplication1.ViewModel.Employee
+@model WebApplication1.ViewModel.EmployeeVM
 
 @{
     ViewBag.Title = "New";
@@ -14,6 +14,12 @@
                 new SelectListItem { Text = "Female", Value = "2"},
             }, "Value", "Text");
 }
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
 
 <div class="row">
     <div class="col-lg-12">
@@ -195,12 +201,14 @@
                                                         <th>Institute</th>
                                                         <th>Degree</th>
                                                         <th>Year</th>
+                                                        <th>Upload Marks/Pass Certificate</th>
                                                         <th><a id="lnkAdd" class="btn btn-primary btn-md" href="#"><i class="fa fa-plus"></i>  Add Row</a></th>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="text" class="form-control" id="txtIns1"></td>
+                                                        <td><input type="text" class="form-control txtIns" id="txtIns1"></td>
                                                         <td><input type="text" class="form-control" id="txtDeg1"></td>
                                                         <td><input type="text" class="form-control" id="txtYear1"></td>
+                                                        <td><input type="file" class="form-control" id="fileCert"></td>
                                                         @*<td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>*@
                                                     </tr>
                                                 </table>
@@ -236,9 +244,10 @@
             var count = $('#tbl tr#dynTr').length;
             if (count < 4) {
                 $('#tbl').append("<tr id='dynTr'>" +
-                                                        "<td><input type='text' class='form-control' id='txtIns" + id + "'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtDeg" + id + "'></td>" +
-                                                        "<td><input type='text' class='form-control' id='txtYear" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control txtIns' id='txtIns" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control txtDeg' id='txtDeg" + id + "'></td>" +
+                                                        "<td><input type='text' class='form-control txtYear' id='txtYear" + id + "'></td>" +
+                                                         "<td><input type='file' class='form-control' id='fileCert" + id + "'></td>" +
                                                         "<td><a id='lnkCancel' class='btn btn-danger btn-sm' href='#'><i class='fa fa-times'></i></a></td>" +
                                                     "</tr>");
                 id++;
@@ -250,6 +259,7 @@
         });
 
         $("#lnkSave").click(function () {
+
             if ($('#txtIns1').val() == "") {
                 $('#txtIns1').attr("style", "border-color: red");
                 return false;
@@ -261,15 +271,15 @@
             var arr = [];
             var arr2 = [];
             var arr3 = [];
-            for (i = 1; i < id; i++) {
-
-                ins = $('#txtIns' + i).val();
+            $('#tbl tr#dynTr').each(function (index, row) {
+                ins = $(row).find('.txtIns').val();
+              //  alert(ins);
                 arr.push(ins);
                 deg = $('#txtDeg' + i).val();
                 arr2.push(deg);
                 yr = $('#txtYear' + i).val();
                 arr3.push(yr);
-            }
+            });
 
             $.ajax({
                 type: "POST",
