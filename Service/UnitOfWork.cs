@@ -8,11 +8,12 @@ using System.Data.Entity;
 
 namespace Service
 {
-   public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         //   IDbSet<T> entity;
         private Dictionary<string, object> repositories;
         private readonly HRDbContext context;
+
         public void Dispose()
         {
             this.Dispose();

@@ -54,7 +54,7 @@
                                 }
                             </tbody>
                         </table>
-                        @Html.Partial("_Edit", Model);
+                        @Html.Partial("_Edit");
                         @*@Html.PagedListPager(Model, page => Url.Action("Index", new
                             {
                                 page,
@@ -70,5 +70,7 @@
 <script>
     $("#lnkEdit").click(function () {
         $("#myModal").modal();
+        $("#modelBody").html("Modal Has Clicked");
+
     });
 </script>

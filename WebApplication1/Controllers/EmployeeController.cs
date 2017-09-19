@@ -9,6 +9,7 @@ using System.Web;
 using AutoMapper;
 using System.Web.Mvc;
 using WebApplication1.ViewModel;
+using System.IO;
 
 namespace WebApplication1.Controllers
 {
@@ -61,6 +62,19 @@ namespace WebApplication1.Controllers
             return View(emp);
         }
         [HttpPost]
+        public ActionResult UploadFile()
+        {
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                var file = Request.Files[i];
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Junk/"), fileName);
+                file.SaveAs(path);
+            }
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult New(String[] Ins, String[] Deg, String[] Year)
         {
             for (int i = 0; i < Ins.Length; i++)
@@ -70,7 +84,6 @@ namespace WebApplication1.Controllers
                 var year = Year[i];
                 //Save
             }
-
             return View();
         }
     }
