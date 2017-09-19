@@ -206,8 +206,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td><input type="text" class="form-control txtIns" id="txtIns1"></td>
-                                                        <td><input type="text" class="form-control" id="txtDeg1"></td>
-                                                        <td><input type="text" class="form-control" id="txtYear1"></td>
+                                                        <td><input type="text" class="form-control txtDeg" id="txtDeg1"></td>
+                                                        <td><input type="text" class="form-control txtYear" id="txtYear1"></td>
                                                         <td><input type="file" class="form-control" id="fileCert"></td>
                                                         @*<td><a class="btn btn-danger btn-sm" href="#"><i class="icon_close_alt2"></i></a></td>*@
                                                     </tr>
@@ -241,9 +241,9 @@
 
         var id = 2;
         $('#lnkAdd').click(function () {
-            var count = $('#tbl tr#dynTr').length;
-            if (count < 4) {
-                $('#tbl').append("<tr id='dynTr'>" +
+            var count = $('#tbl tr').length;
+            if (count < 6) {
+                $('#tbl').append("<tr>" +
                                                         "<td><input type='text' class='form-control txtIns' id='txtIns" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control txtDeg' id='txtDeg" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control txtYear' id='txtYear" + id + "'></td>" +
@@ -271,13 +271,13 @@
             var arr = [];
             var arr2 = [];
             var arr3 = [];
-            $('#tbl tr#dynTr').each(function (index, row) {
+
+            $('#tbl tr').each(function (index, row) {
                 ins = $(row).find('.txtIns').val();
-              //  alert(ins);
                 arr.push(ins);
-                deg = $('#txtDeg' + i).val();
+                deg = $(row).find('.txtDeg').val();
                 arr2.push(deg);
-                yr = $('#txtYear' + i).val();
+                yr = $(row).find('.txtYear').val();
                 arr3.push(yr);
             });
 
