@@ -204,7 +204,7 @@
                                                         <th>Upload Marks/Pass Certificate</th>
                                                         <th><a id="lnkAdd" class="btn btn-primary btn-md" href="#"><i class="fa fa-plus"></i>  Add Row</a></th>
                                                     </tr>
-                                                    <tr>
+                                                    <tr id="trbdy">
                                                         <td><input type="text" class="form-control txtIns" id="txtIns1"></td>
                                                         <td><input type="text" class="form-control txtDeg" id="txtDeg1"></td>
                                                         <td><input type="text" class="form-control txtYear" id="txtYear1"></td>
@@ -243,7 +243,7 @@
         $('#lnkAdd').click(function () {
             var count = $('#tbl tr').length;
             if (count < 6) {
-                $('#tbl').append("<tr>" +
+                $('#tbl').append("<tr id='trbdy'>" +
                                                         "<td><input type='text' class='form-control txtIns' id='txtIns" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control txtDeg' id='txtDeg" + id + "'></td>" +
                                                         "<td><input type='text' class='form-control txtYear' id='txtYear" + id + "'></td>" +
@@ -272,7 +272,7 @@
             var arr2 = [];
             var arr3 = [];
 
-            $('#tbl tr').each(function (index, row) {
+            $('#tbl tr#trbdy').each(function (index, row) {
                 ins = $(row).find('.txtIns').val();
                 arr.push(ins);
                 deg = $(row).find('.txtDeg').val();
