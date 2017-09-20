@@ -40,15 +40,7 @@ namespace WebApplication1.Controllers
         }
         public ActionResult New()
         {
-            EmployeeVM emp = new EmployeeVM();
-            List<Country> list = new List<Country>();
-            list.Add(new Country { Id = 1, Name = "Pakistan" });
-            list.Add(new Country { Id = 2, Name = "India" });
-            list.Add(new Country { Id = 3, Name = "China" });
-            list.Add(new Country { Id = 4, Name = "USA" });
-            emp.Country = new SelectList(list, "Id", "Name");
-
-            return View(emp);
+            return View();
         }
         [HttpPost]
         public ActionResult UploadFile()
@@ -74,6 +66,20 @@ namespace WebApplication1.Controllers
                 //Save
             }
             return View();
+        }
+
+        public EmployeeVM AddEmp(EmployeeVM EmpVm)
+        {
+            return ServiceHelper.ExecuteSafely<EmployeeVM>(() =>
+            {
+                var Employee = new Employee();
+                Employee.Department = EmpVm.Department;
+                Employee.Name = EmpVm.Name;
+                Employee.Salary = EmpVm.Salary;
+                unitOfWork.Repository<Employee>().Add(Employee);
+                unitOfWork.Save();
+                return EmpVm;
+            });
         }
     }
     public class Country
