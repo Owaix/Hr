@@ -26,9 +26,9 @@ namespace Service
         {
             return this.Entities.Find(id);
         }
-        public T FindById(Func<T, bool> where)
+        public IEnumerable<T> FindById(Func<T, bool> where)
         {
-            return this.Entities.Find(where);
+            return this.Entities.Where(where);
         }
         public void Insert(T entity)
         {

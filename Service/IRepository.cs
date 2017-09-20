@@ -7,7 +7,7 @@ namespace Service
     {
         IEnumerable<T> GetAll();
         T GetById(object id);
-        T FindById(Func<T, bool> where);
+        IEnumerable<T> FindById(Func<T, bool> where);
         void Insert(T entity);
         void Update(T entity);
         void Delete(T entity);

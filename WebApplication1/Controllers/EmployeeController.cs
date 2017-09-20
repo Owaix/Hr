@@ -25,13 +25,19 @@ namespace WebApplication1.Controllers
             EmpRep = unitOfWork.Repository<Employee>();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var item = EmpRep.GetAll();
+            var item = EmpRep.GetAll().ToPagedList(page ?? 1, 3);
+            var items = Mapper.Map<IPagedList<EmployeeVM>>(item);
+            return View(items);
+        }
+        [HttpPost]
+        public ActionResult SearchList(String Dept)
+        {
+            var item = EmpRep.FindById(x => x.Department == Dept).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items);
         }
-
         public ActionResult New()
         {
             EmployeeVM emp = new EmployeeVM();
