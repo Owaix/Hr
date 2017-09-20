@@ -244,6 +244,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709200950479_CreateEM.cs" />
+    <Compile Include="Migrations\201709200950479_CreateEM.Designer.cs">
+      <DependentUpon>201709200950479_CreateEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -252,6 +257,10 @@
     <Compile Include="ViewModel\EmployeeVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\HRMSDb.mdf" />
+    <Content Include="App_Data\HRMSDb_log.ldf">
+      <DependentUpon>HRMSDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
     <Content Include="Assets\chart-master\Chart.min.js" />
@@ -1422,7 +1431,6 @@
     <Content Include="Views\Employee\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Template\assets\jquery-file-upload\server\php\files\thumbnail\" />
   </ItemGroup>
@@ -1442,6 +1450,11 @@
       <Project>{ead1b750-8ec4-4f37-870c-c5b5d640df68}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709200950479_CreateEM.resx">
+      <DependentUpon>201709200950479_CreateEM.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
