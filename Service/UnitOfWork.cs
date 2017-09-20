@@ -13,7 +13,14 @@ namespace Service
         //   IDbSet<T> entity;
         private Dictionary<string, object> repositories;
         private readonly HRDbContext context;
-
+        public UnitOfWork(HRDbContext context)
+        {
+            this.context = context;
+        }
+        public UnitOfWork()
+        {
+            //   context = new CurdDbContext();
+        }
         public void Dispose()
         {
             this.Dispose();

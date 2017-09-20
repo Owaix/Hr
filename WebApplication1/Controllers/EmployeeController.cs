@@ -16,15 +16,13 @@ namespace WebApplication1.Controllers
 {
     public class EmployeeController : Controller
     {
-        public HRDbContext db = new HRDbContext();
         private UnitOfWork unitOfWork;
         private Repository<Employee> EmpRep;
-        List<EmployeeVM> emp;
 
         public EmployeeController()
         {
-            unitOfWork = new UnitOfWork();
-            EmpRep = new Repository<Employee>(new HRDbContext());
+            unitOfWork = new UnitOfWork(new HRDbContext());
+            EmpRep = unitOfWork.Repository<Employee>();
         }
 
         public ActionResult Index()
@@ -33,7 +31,6 @@ namespace WebApplication1.Controllers
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items);
         }
-
 
         public ActionResult New()
         {
