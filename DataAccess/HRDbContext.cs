@@ -18,14 +18,9 @@ namespace DataAccess
         }
         public DbSet<Employee> Employee { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder builder)
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {
-            builder.Conventions.Remove<PluralizingTableNameConvention>();
+            return base.Set<TEntity>();
         }
-
-        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
-        //{
-        //    return base.Set<TEntity>();
-        //}
     }
 }

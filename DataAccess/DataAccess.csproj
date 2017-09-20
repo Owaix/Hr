@@ -52,12 +52,36 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="HRDbContext.cs" />
+    <Compile Include="Migrations\201709201011542_CreateEmp.cs" />
+    <Compile Include="Migrations\201709201011542_CreateEmp.Designer.cs">
+      <DependentUpon>201709201011542_CreateEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709201015340_CreateEmp1.cs" />
+    <Compile Include="Migrations\201709201015340_CreateEmp1.Designer.cs">
+      <DependentUpon>201709201015340_CreateEmp1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709201124274_AddEMpl.cs" />
+    <Compile Include="Migrations\201709201124274_AddEMpl.Designer.cs">
+      <DependentUpon>201709201124274_AddEMpl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709201011542_CreateEmp.resx">
+      <DependentUpon>201709201011542_CreateEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709201015340_CreateEmp1.resx">
+      <DependentUpon>201709201015340_CreateEmp1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709201124274_AddEMpl.resx">
+      <DependentUpon>201709201124274_AddEMpl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

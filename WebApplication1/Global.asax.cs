@@ -15,6 +15,9 @@ namespace WebApplication1
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+
             MapperConfig.Mappers();
         }
     }

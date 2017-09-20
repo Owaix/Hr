@@ -1,18 +1,18 @@
-namespace WebApplication1.Migrations
+namespace DataAccess.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication1.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.HRDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WebApplication1.Models.ApplicationDbContext context)
+        protected override void Seed(DataAccess.HRDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -2,7 +2,7 @@
 using Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using DataAccess.Models;
 using PagedList.Mvc;
 using PagedList;
 using System.Web;
@@ -10,44 +10,30 @@ using AutoMapper;
 using System.Web.Mvc;
 using WebApplication1.ViewModel;
 using System.IO;
+using System.Linq;
 
 namespace WebApplication1.Controllers
 {
     public class EmployeeController : Controller
     {
-        // HRDbContext db = new HRDbContext();
-        private Repository<EmployeeVM> EmpRep;
-        List<EmployeeVM> emp;
+        public HRDbContext db = new HRDbContext();
         private UnitOfWork unitOfWork;
+        private Repository<Employee> EmpRep;
+        List<EmployeeVM> emp;
 
         public EmployeeController()
         {
             unitOfWork = new UnitOfWork();
-            EmpRep = unitOfWork.Repository<EmployeeVM>();
-
-            emp = new List<EmployeeVM>();
-            emp.Add(new EmployeeVM { Id = 1, Name = "Owais", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 2, Name = "dasdd", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 3, Name = "szdsa", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 4, Name = "weweq", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 5, Name = "dxzvd", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 6, Name = "ererr", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 7, Name = "rewtg", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 8, Name = "Owais", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 9, Name = "dasdd", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 10, Name = "szdsa", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 11, Name = "weweq", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 12, Name = "dxzvd", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 13, Name = "ererr", Department = "HR", Salary = 4334 });
-            emp.Add(new EmployeeVM { Id = 14, Name = "rewtg", Department = "HR", Salary = 4334 });
+            EmpRep = new Repository<Employee>(new HRDbContext());
         }
 
         public ActionResult Index()
         {
-            // var item = EmpRep.GetAll();
-            var item = Mapper.Map<List<EmployeeVM>>(emp);
-            return View(item);
+            var item = EmpRep.GetAll();
+            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
+            return View(items);
         }
+
 
         public ActionResult New()
         {

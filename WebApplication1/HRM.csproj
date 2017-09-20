@@ -244,11 +244,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709200950479_CreateEM.cs" />
-    <Compile Include="Migrations\201709200950479_CreateEM.Designer.cs">
-      <DependentUpon>201709200950479_CreateEM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1450,11 +1445,6 @@
       <Project>{ead1b750-8ec4-4f37-870c-c5b5d640df68}</Project>
       <Name>Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709200950479_CreateEM.resx">
-      <DependentUpon>201709200950479_CreateEM.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
