@@ -1437,6 +1437,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{cf1590bf-55d0-4eaf-82f6-1a0242b4bbf5}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{14aef7cd-4f94-4c7b-b821-29a55c5adc81}</Project>
       <Name>DataAccess</Name>

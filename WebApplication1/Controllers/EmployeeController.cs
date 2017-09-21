@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using WebApplication1.ViewModel;
 using System.IO;
 using System.Linq;
+using Common;
 
 namespace WebApplication1.Controllers
 {
@@ -63,7 +64,13 @@ namespace WebApplication1.Controllers
                 var institute = Ins[i];
                 var degree = Deg[i];
                 var year = Year[i];
-                //Save
+                Logging.ExecuteSafely<EmployeeVM>(() =>
+                {
+                    var emp = new Employee();
+                    emp.Name = "Owais";
+                    emp.Age = 100;
+                    return null;
+                });
             }
             return View();
         }
