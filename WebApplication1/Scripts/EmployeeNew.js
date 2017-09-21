@@ -53,15 +53,15 @@
 
         $.ajax({
             type: "POST",
-            url: '@Url.Action("New", "Employee")',
+            url: "/Employee/New",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify({ Ins: arr, Deg: arr2, Year: arr3 }),
             success: function (datas) {
                 alert('Rows saved!');
             },
-            error: function () {
-                alert("An error has occured!!!");
+            error: function (request, status, error) {
+                alert(request.responseText);
             }
         });
     });

@@ -28,8 +28,8 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index(int? page)
         {
-            var item = EmpRep.GetAll().ToPagedList(page ?? 1, 3);
-            var items = Mapper.Map<IPagedList<EmployeeVM>>(item);
+            var item = EmpRep.GetAll();
+            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items);
         }
         [HttpPost]
