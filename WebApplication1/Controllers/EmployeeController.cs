@@ -29,8 +29,8 @@ namespace WebApplication1.Controllers
         public ActionResult Index(int? page)
         {
             var item = EmpRep.GetAll();
-            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
-            return View(items);
+            var items = Mapper.Map<List<EmployeeVM>>(item);
+            return View(items.ToPagedList(page ?? 1, 5));
         }
         [HttpPost]
         public ActionResult SearchList(String Dept)

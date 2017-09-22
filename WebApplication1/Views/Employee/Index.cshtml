@@ -1,7 +1,7 @@
 ﻿@using PagedList.Mvc;
 @using PagedList;
 @using ReportViewerForMvc;
-@model  IEnumerable<WebApplication1.ViewModel.EmployeeVM>
+@model  IPagedList<WebApplication1.ViewModel.EmployeeVM>
 @{
 
     ViewBag.Title = "Index";
@@ -64,8 +64,8 @@
                                 }
                             </tbody>
                         </table>
-                        @Html.Partial("_Edit");
-                        @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }));*@
+                        @Html.Partial("_Edit")
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
                     </div>
                 </div>
             </div>

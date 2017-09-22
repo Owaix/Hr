@@ -15,7 +15,6 @@ namespace Common
         {
             XmlConfigurator.Configure();
             log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-            log.Info("Data Has Insert Successfully");
         }
 
         public static T ExecuteSafely<T>(EntityMethodDelegate<T> codeBlock)
