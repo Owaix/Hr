@@ -1,0 +1,28 @@
+﻿
+@{
+    @model WebApplication1.ViewModel.FeatureRoles
+    ViewBag.Title = "AccessConfig";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            @foreach (var item in Model.Role)
+            {
+                <th>@item.Name</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model.Feature)
+            {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>

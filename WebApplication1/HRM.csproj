@@ -250,6 +250,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\EmployeeVM.cs" />
+    <Compile Include="ViewModel\FeatureRoles.cs" />
+    <Compile Include="ViewModel\Features.cs" />
+    <Compile Include="ViewModel\Roles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\HRMSDb.mdf" />
@@ -1424,6 +1427,7 @@
     <Content Include="Views\Employee\New.cshtml" />
     <Content Include="Views\Employee\_Edit.cshtml" />
     <Content Include="Views\Employee\UploadFile.cshtml" />
+    <Content Include="Views\Home\AccessConfig.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\jquery-file-upload\server\php\files\thumbnail\" />

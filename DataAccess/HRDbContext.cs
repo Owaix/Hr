@@ -17,6 +17,8 @@ namespace DataAccess
             Database.SetInitializer<HRDbContext>(null);
         }
         public DbSet<Employee> Employee { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<Features> Features { get; set; }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {

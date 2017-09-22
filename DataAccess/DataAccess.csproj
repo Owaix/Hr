@@ -64,8 +64,18 @@
     <Compile Include="Migrations\201709201124274_AddEMpl.Designer.cs">
       <DependentUpon>201709201124274_AddEMpl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709221257041_CreateTable.cs" />
+    <Compile Include="Migrations\201709221257041_CreateTable.Designer.cs">
+      <DependentUpon>201709221257041_CreateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709221301009_CreateTabl.cs" />
+    <Compile Include="Migrations\201709221301009_CreateTabl.Designer.cs">
+      <DependentUpon>201709221301009_CreateTabl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Features.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +91,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709201124274_AddEMpl.resx">
       <DependentUpon>201709201124274_AddEMpl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709221257041_CreateTable.resx">
+      <DependentUpon>201709221257041_CreateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709221301009_CreateTabl.resx">
+      <DependentUpon>201709221301009_CreateTabl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

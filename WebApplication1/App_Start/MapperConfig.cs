@@ -12,9 +12,12 @@ namespace WebApplication1.App_Start
     {
         public static void Mappers()
         {
-            Mapper.Initialize(
-                x => x.CreateMap<EmployeeVM, Employee>().ReverseMap()
-                );
+            Mapper.Initialize(x =>
+            {
+                x.CreateMap<EmployeeVM, Employee>().ReverseMap();
+                x.CreateMap<WebApplication1.ViewModel.Roles, DataAccess.Models.Roles>().ReverseMap();
+                x.CreateMap<WebApplication1.ViewModel.Features, DataAccess.Models.Features>().ReverseMap();
+            });
         }
     }
 }

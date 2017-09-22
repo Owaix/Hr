@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
         {
             var item = EmpRep.GetAll();
             var items = Mapper.Map<List<EmployeeVM>>(item);
-            return View(items.ToPagedList(page ?? 1, 5));
+            return View(items.ToPagedList(page ?? 1, 10));
         }
         [HttpPost]
         public ActionResult SearchList(String Dept)

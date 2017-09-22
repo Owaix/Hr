@@ -64,7 +64,7 @@
             data: JSON.stringify({ "Ins": arr, "Deg": arr2, "Year": arr3, "Docs": arr4 }),
             success: function (datas) {
                 for (var i = 0; i < datas.length ; i++) {
-                    var Val = datas[i].Name;
+                    var Val = datas[i].Name + " " + datas[i].Id;
                     alert(Val);
                 }
             },
