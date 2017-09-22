@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
                     return null;
                 });
             }
-            return View();
+            return Json(new Country { Name = "Pakistan" });
         }
 
         public EmployeeVM AddEmp(EmployeeVM EmpVm)

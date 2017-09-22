@@ -61,12 +61,13 @@
             url: "/Employee/New",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify({ Ins: arr, Deg: arr2, Year: arr3, Docs: arr4 }),
+            data: JSON.stringify({ "Ins": arr, "Deg": arr2, "Year": arr3, "Docs": arr4 }),
             success: function (datas) {
-                alert('Rows saved!');
+                var Val = datas.Name;
+                alert(Val);
             },
             error: function (request, status, error) {
-                console.log(request, status, error);
+                alert(request, status, error);
             }
         });
     });
