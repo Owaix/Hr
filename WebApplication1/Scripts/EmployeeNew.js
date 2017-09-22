@@ -63,8 +63,10 @@
             dataType: "json",
             data: JSON.stringify({ "Ins": arr, "Deg": arr2, "Year": arr3, "Docs": arr4 }),
             success: function (datas) {
-                var Val = datas.Name;
-                alert(Val);
+                for (var i = 0; i < datas.length ; i++) {
+                    var Val = datas[i].Name;
+                    alert(Val);
+                }
             },
             error: function (request, status, error) {
                 alert(request, status, error);

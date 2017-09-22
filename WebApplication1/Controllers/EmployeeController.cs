@@ -72,7 +72,13 @@ namespace WebApplication1.Controllers
                     return null;
                 });
             }
-            return Json(new Country { Name = "Pakistan" });
+            List<Country> countrylist = new List<Country>();
+            countrylist.Add(new Country { Id = 1, Name = "Owais" });
+            countrylist.Add(new Country { Id = 2, Name = "ALi" });
+            countrylist.Add(new Country { Id = 3, Name = "Ahmed" });
+            countrylist.Add(new Country { Id = 4, Name = "John" });
+            countrylist.Add(new Country { Id = 5, Name = "Smith" });
+            return Json(countrylist);
         }
 
         public EmployeeVM AddEmp(EmployeeVM EmpVm)
