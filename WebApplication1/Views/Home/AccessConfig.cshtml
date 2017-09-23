@@ -20,9 +20,12 @@
             @foreach (var item in Model.Feature)
             {
             <tr>
-                <td>@item.Name</td>
+                <td class="col-md-2">@item.Name</td>
+                @foreach (var role in Model.Role)
+                {
+                    <td><input type="checkbox" class="@(item.id + "_"+role.Id)" /></td>
+                }
             </tr>
             }
-
         </tbody>
     </table>
