@@ -32,9 +32,10 @@
     <input type="button" value="Button" id="btn" />
     <script>
         $('#btn').click(function () {
-            $('.table td').each(function (index, row) {
-                var Val = $(this).parent().find('input:checkbox:checked').val();
-                console.log(Val);
+            $('.table td input:checked').each(function (index, row) {
+                var txt = $(row).val();
+                var arr = txt.split('_');
+                console.log(arr[0] + '____' + arr[1]);
             });
         });
     </script>
