@@ -23,9 +23,18 @@
                 <td class="col-md-2">@item.Name</td>
                 @foreach (var role in Model.Role)
                 {
-                    <td><input type="checkbox" class="@(item.id + "_"+role.Id)" /></td>
+                    <td class="tds"><input id="cbChk" type="checkbox" value="@(item.id + "_"+role.Id)" /></td>
                 }
             </tr>
             }
         </tbody>
     </table>
+    <input type="button" value="Button" id="btn" />
+    <script>
+        $('#btn').click(function () {
+            $('.table td').each(function (index, row) {
+                var Val = $(this).parent().find('input:checkbox:checked').val();
+                console.log(Val);
+            });
+        });
+    </script>
