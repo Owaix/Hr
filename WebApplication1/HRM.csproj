@@ -44,9 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutoMapper, Version=3.3.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assets\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -242,25 +242,26 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IdentityExtensions\CustomPasswordValidator.cs" />
+    <Compile Include="Migrations\201709261427203_addRole.cs" />
+    <Compile Include="Migrations\201709261427203_addRole.Designer.cs">
+      <DependentUpon>201709261427203_addRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\EmployeeVM.cs" />
+    <Compile Include="ViewModel\Employee.cs" />
     <Compile Include="ViewModel\FeatureRoles.cs" />
     <Compile Include="ViewModel\Features.cs" />
     <Compile Include="ViewModel\Roles.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\HRMSDb.mdf" />
-    <Content Include="App_Data\HRMSDb_log.ldf">
-      <DependentUpon>HRMSDb.mdf</DependentUpon>
-    </Content>
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
     <Content Include="Assets\chart-master\Chart.min.js" />
@@ -1456,6 +1457,11 @@
       <Project>{ead1b750-8ec4-4f37-870c-c5b5d640df68}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709261427203_addRole.resx">
+      <DependentUpon>201709261427203_addRole.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

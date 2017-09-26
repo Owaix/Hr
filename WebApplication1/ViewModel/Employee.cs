@@ -15,7 +15,5 @@ namespace WebApplication1.ViewModel
         public String Department { get; set; }
         public String Designation { get; set; }
         public float Salary { get; set; }
-        public SelectList Country { get; set; }
-        public SelectList Gender { get; set; }
     }
 }

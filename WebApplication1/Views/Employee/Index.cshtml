@@ -1,7 +1,6 @@
 ﻿@using PagedList.Mvc;
 @using PagedList;
-@using ReportViewerForMvc;
-@model  IPagedList<WebApplication1.ViewModel.EmployeeVM>
+@model IPagedList<WebApplication1.ViewModel.Employee>
 @{
 
     ViewBag.Title = "Index";
@@ -55,10 +54,10 @@
                                     foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td class="col-md-2">@item.Id</td>
-                                            <td>@item.Name</td>
-                                            <td>@item.Salary</td>
-                                            <td>@item.Department</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
+                                            <td>DUMMY</td>
                                             <td>
                                                 <i class="btn-group">
                                                     <a class="btn btn-primary" id="lnkEdit" href="#"><i class="icon_plus_alt2"></i></a>
@@ -70,8 +69,12 @@
                                 }
                             </tbody>
                         </table>
-                        @Html.Partial("_Edit")
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new
+                       {
+                           page,
+                           searchBy = Request.QueryString["searchBy"],
+                           search = Request.QueryString["search"]
+                       }));
                     </div>
                 </div>
             </div>

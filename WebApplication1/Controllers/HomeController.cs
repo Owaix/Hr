@@ -22,6 +22,7 @@ namespace WebApplication1.Controllers
             FeaRep = unitOfWork.Repository<DataAccess.Models.Features>();
 
         }
+        [Authorize]
         public ActionResult Index()
         {
             return View();

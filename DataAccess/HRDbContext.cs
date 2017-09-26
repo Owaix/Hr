@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
+using DataAccess.Models;
 using System.Threading.Tasks;
 
 namespace DataAccess
@@ -16,9 +17,6 @@ namespace DataAccess
         {
             Database.SetInitializer<HRDbContext>(null);
         }
-        public DbSet<Employee> Employee { get; set; }
-        public DbSet<Roles> Roles { get; set; }
-        public DbSet<Features> Features { get; set; }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {

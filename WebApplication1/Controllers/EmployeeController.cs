@@ -17,20 +17,21 @@ namespace WebApplication1.Controllers
 {
     public class EmployeeController : Controller
     {
-        private UnitOfWork unitOfWork;
+        // HRDbContext db = new HRDbContext();
         private Repository<Employee> EmpRep;
+        private UnitOfWork unitOfWork;
+
 
         public EmployeeController()
         {
-            unitOfWork = new UnitOfWork(new HRDbContext());
+            unitOfWork = new UnitOfWork();
             EmpRep = unitOfWork.Repository<Employee>();
         }
 
         public ActionResult Index(int? page)
         {
             var item = EmpRep.GetAll();
-            var items = Mapper.Map<List<EmployeeVM>>(item);
-            return View(items.ToPagedList(page ?? 1, 10));
+            return View(item);
         }
         [HttpPost]
         public ActionResult SearchList(String Dept)
@@ -41,18 +42,13 @@ namespace WebApplication1.Controllers
         }
         public ActionResult New()
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult UploadFile()
-        {
-            for (int i = 0; i < Request.Files.Count; i++)
-            {
-                var file = Request.Files[i];
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Junk/"), fileName);
-                file.SaveAs(path);
-            }
+            Employee emp = new Employee();
+            List<Country> list = new List<Country>();
+            list.Add(new Country { Id = 1, Name = "Pakistan" });
+            list.Add(new Country { Id = 2, Name = "India" });
+            list.Add(new Country { Id = 3, Name = "China" });
+            list.Add(new Country { Id = 4, Name = "USA" });
+            // emp.Country = new SelectList(list, "Id", "Name");
             return View();
         }
 

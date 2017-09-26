@@ -20,6 +20,7 @@ namespace WebApplication1.Models
 
             return userIdentity;
         }
+        public string Role { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
