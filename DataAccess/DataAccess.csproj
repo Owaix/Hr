@@ -72,8 +72,13 @@
     <Compile Include="Migrations\201709221301009_CreateTabl.Designer.cs">
       <DependentUpon>201709221301009_CreateTabl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709231505201_CreateAC.cs" />
+    <Compile Include="Migrations\201709231505201_CreateAC.Designer.cs">
+      <DependentUpon>201709231505201_CreateAC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\FeatureAccessConfig.cs" />
     <Compile Include="Models\Features.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709221301009_CreateTabl.resx">
       <DependentUpon>201709221301009_CreateTabl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709231505201_CreateAC.resx">
+      <DependentUpon>201709231505201_CreateAC.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
