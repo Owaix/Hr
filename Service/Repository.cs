@@ -10,11 +10,11 @@ namespace Service
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly HRDbContext context;
+        private readonly HrContext context;
         private IDbSet<T> entities;
         string errorMessage = string.Empty;
 
-        public Repository(HRDbContext context)
+        public Repository(HrContext context)
         {
             this.context = context;
         }

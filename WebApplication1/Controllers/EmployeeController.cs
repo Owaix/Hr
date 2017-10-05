@@ -1,17 +1,14 @@
-﻿using DataAccess;
-using Service;
+﻿using Service;
 using System;
 using System.Collections.Generic;
-using DataAccess.Models;
-using PagedList.Mvc;
-using PagedList;
-using System.Web;
 using AutoMapper;
 using System.Web.Mvc;
 using WebApplication1.ViewModel;
-using System.IO;
 using System.Linq;
 using Common;
+using DataAccess.Models;
+using DataAccess;
+using PagedList;
 
 namespace WebApplication1.Controllers
 {
@@ -21,24 +18,24 @@ namespace WebApplication1.Controllers
         private Repository<Employee> EmpRep;
         private UnitOfWork unitOfWork;
 
-
         public EmployeeController()
         {
-            unitOfWork = new UnitOfWork();
+            unitOfWork = new UnitOfWork(new HrContext());
             EmpRep = unitOfWork.Repository<Employee>();
         }
 
         public ActionResult Index(int? page)
         {
             var item = EmpRep.GetAll();
-            return View(item);
+            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
+            return View(items.ToPagedList(page ?? 1, 10));
         }
         [HttpPost]
-        public ActionResult SearchList(String Dept)
+        public ActionResult SearchList(String name)
         {
-            var item = EmpRep.FindById(x => x.Department == Dept).ToList();
+            var item = EmpRep.FindById(x => x.Name == name).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
-            return View(items);
+            return View("Index",items.ToPagedList(1, 10));
         }
         public ActionResult New()
         {
@@ -77,15 +74,21 @@ namespace WebApplication1.Controllers
             return Json(countrylist);
         }
 
+        public ActionResult ActionMethod(Country country)
+        {
+            return View();
+        }
+
+
         public EmployeeVM AddEmp(EmployeeVM EmpVm)
         {
             return ServiceHelper.ExecuteSafely<EmployeeVM>(() =>
             {
-                var Employee = new Employee();
-                Employee.Department = EmpVm.Department;
-                Employee.Name = EmpVm.Name;
-                Employee.Salary = EmpVm.Salary;
-                unitOfWork.Repository<Employee>().Add(Employee);
+                //var Employee = new Employee();
+                //Employee.Department = EmpVm.Department;
+                //Employee.Name = EmpVm.Name;
+                //Employee.Salary = EmpVm.Salary;
+                //unitOfWork.Repository<Employee>().Add(Employee);
                 unitOfWork.Save();
                 return EmpVm;
             });

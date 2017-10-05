@@ -6,19 +6,15 @@ using System.Data.Entity;
 
 namespace DataAccess
 {
-    public class HRDbContext : DbContext
+    public class HrContext : DbContext
     {
-        public HRDbContext() : base(ConfigurationManager.ConnectionStrings["HRMSCOnStr"].ConnectionString)
+        public HrContext() : base(ConfigurationManager.ConnectionStrings["HRMSCOnStr"].ConnectionString)
         {
-          
+            Database.SetInitializer<HrContext>(null);
         }
+        public DbSet<Employee> employee { get; set; }
         public DbSet<Features> feature { get; set; }
         public DbSet<Roles> role { get; set; }
         public DbSet<FeatureAccessConfig> FRConfig { get; set; }
-
-        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
-        //{
-        //    return base.Set<TEntity>();
-        //}
     }
 }

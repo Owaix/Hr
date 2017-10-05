@@ -12,8 +12,8 @@ namespace Service
     {
         //   IDbSet<T> entity;
         private Dictionary<string, object> repositories;
-        private readonly HRDbContext context;
-        public UnitOfWork(HRDbContext context)
+        private readonly HrContext context;
+        public UnitOfWork(HrContext context)
         {
             this.context = context;
         }

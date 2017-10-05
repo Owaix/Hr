@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.ViewModel
 {
-    public class Roles
+    public class RolesVM
     {
         [Key]
         public int Id { get; set; }

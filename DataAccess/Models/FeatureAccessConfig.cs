@@ -13,5 +13,6 @@ namespace DataAccess.Models
         public int Id { get; set; }
         public int Role_Id { get; set; }
         public int Feature_Id { get; set; }
+        public bool IsCheck { get; set; }
     }
 }

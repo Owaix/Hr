@@ -75,7 +75,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Gender:</label>
-                                                    @Html.DropDownListFor(x => x.Gender, domainsList, new { @class = "form-control" })
+                                                    @Html.DropDownListFor(x => x.Name, domainsList, new { @class = "form-control" })
                                                 </div>
                                             </div>
                                         </div>
@@ -190,7 +190,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="usr">Gender:</label>
-                                                    @Html.DropDownListFor(x => x.Gender, domainsList, new { @class = "form-control" })
+                                                    @Html.DropDownListFor(x => x.Name, domainsList, new { @class = "form-control" })
                                                 </div>
                                             </div>
                                         </div>
@@ -237,3 +237,24 @@
     </div>
 </div>
 <script src="~/Scripts/EmployeeNew.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        var data = new FormData();
+        data.append("Name", "OWais");
+        data.append("Id", 23);
+        $.ajax({
+            type: "POST",
+            url: "/Employee/ActionMethod",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                alert(response.d);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    });
+</script>

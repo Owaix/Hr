@@ -13,5 +13,14 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public ActionResult Indexer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Indexr()
+        {
+            return View();
+        }
     }
 }

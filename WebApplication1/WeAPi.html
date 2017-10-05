@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+
+    <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnGetWeather').click(function () {
+                $(".multiselect-container").find("input:checked").each(function () {
+                    console.log($(this).val());
+                });
+
+                $(function () {
+                    $("#ListBox1").multiselect({
+                        includeSelectAllOption: true
+                    });
+                });
+
+
+                $.ajax({
+                    url: 'http://localhost:42030/api/json/GetAll',
+                    method: 'get',
+                    dataType: 'jsonp',
+                    success: function (response) {
+                        var Result = $('#resultDiv');
+                        var app = '';
+                        $.each(response, function (index, element) {
+                            app += element.ID + " " + element.Name + "<br>";
+                        });
+                        $(Result).html(app);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body style="font-family:Arial">
+    <input type="button" id="btnGetWeather" value="Get Weather Data">
+    <br /><br />
+    <div id="resultDiv">
+    </div>
+    <select class="form-control" id="ListBox1" multiple="multiple">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+    </select>
+</body>
+</html>

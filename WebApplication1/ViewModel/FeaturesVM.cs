@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.ViewModel
 {
-    public class Features
+    public class FeaturesVM
     {
         [Key]
         public int id { get; set; }

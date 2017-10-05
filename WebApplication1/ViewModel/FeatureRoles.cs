@@ -7,7 +7,7 @@ namespace WebApplication1.ViewModel
 {
     public class FeatureRoles
     {
-        public IEnumerable<Roles> Role { get; set; }
-        public IEnumerable<Features> Feature { get; set; }
+        public IEnumerable<RolesVM> Role { get; set; }
+        public IEnumerable<FeaturesVM> Feature { get; set; }
     }
 }

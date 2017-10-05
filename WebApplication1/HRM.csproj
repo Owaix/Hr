@@ -170,6 +170,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.Formatting.Jsonp, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiContrib.Formatting.Jsonp.3.0.2\lib\net45\WebApiContrib.Formatting.Jsonp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -233,6 +237,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\UI- Copy.cs" />
+    <Compile Include="App_Start\IdentityExtension.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -258,10 +264,14 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\Employee.cs" />
     <Compile Include="ViewModel\FeatureRoles.cs" />
-    <Compile Include="ViewModel\Features.cs" />
-    <Compile Include="ViewModel\Roles.cs" />
+    <Compile Include="ViewModel\FeaturesVM.cs" />
+    <Compile Include="ViewModel\RolesVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\HRMSDb.mdf" />
+    <Content Include="App_Data\HRMSDb_log.ldf">
+      <DependentUpon>HRMSDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
     <Content Include="Assets\chart-master\Chart.min.js" />
@@ -642,6 +652,7 @@
     <Content Include="Assets\morris.js-0.4.3\spec\vendor\raphael-2.1.0.min.js" />
     <Content Include="Assets\morris.js-0.4.3\spec\vendor\sinon-1.5.0.js" />
     <Content Include="Assets\morris.js-0.4.3\spec\vendor\sinon-chai-2.1.2.js" />
+    <Content Include="ComboDDL.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -1336,6 +1347,7 @@
     <Content Include="Template\profile.html" />
     <Content Include="Template\readme.txt" />
     <Content Include="Template\widgets.html" />
+    <Content Include="WeAPi.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1432,6 +1444,8 @@
     <Content Include="Views\Employee\UploadFile.cshtml" />
     <Content Include="Views\Home\AccessConfig.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Dashboard\Indexer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\jquery-file-upload\server\php\files\thumbnail\" />
@@ -1443,6 +1457,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709261427203_addRole.resx">
+      <DependentUpon>201709261427203_addRole.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
@@ -1457,11 +1476,6 @@
       <Project>{ead1b750-8ec4-4f37-870c-c5b5d640df68}</Project>
       <Name>Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709261427203_addRole.resx">
-      <DependentUpon>201709261427203_addRole.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

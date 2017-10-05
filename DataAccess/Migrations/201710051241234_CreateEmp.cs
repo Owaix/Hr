@@ -8,15 +8,15 @@ namespace DataAccess.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Employee",
+                "dbo.Employees",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Department = c.String(),
                         Designation = c.String(),
-                        Salary = c.Single(nullable: false),
-                        Age = c.Int(nullable: false),
+                        Salary = c.Single(),
+                        Age = c.Int(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -24,7 +24,7 @@ namespace DataAccess.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Employee");
+            DropTable("dbo.Employees");
         }
     }
 }

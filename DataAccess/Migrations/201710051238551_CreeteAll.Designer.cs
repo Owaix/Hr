@@ -7,13 +7,13 @@ namespace DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CreateEmp1 : IMigrationMetadata
+    public sealed partial class CreeteAll : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateEmp1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreeteAll));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709201015340_CreateEmp1"; }
+            get { return "201710051238551_CreeteAll"; }
         }
         
         string IMigrationMetadata.Source

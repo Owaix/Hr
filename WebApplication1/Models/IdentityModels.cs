@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Newtonsoft.Json;
 
+//Role 
+
 namespace WebApplication1.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -15,11 +17,15 @@ namespace WebApplication1.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
-            var user = manager.FindById(userIdentity.GetUserId());
+            var user = manager.FindById(userIdentity.GetUserId()).Role;
             new Claim("User", JsonConvert.SerializeObject(user));
-
             return userIdentity;
+
+            //        var u = ((ClaimsPrincipal)manager).HasClaim(x => x.Type = "User");
         }
+
+
+
         public string Role { get; set; }
     }
 

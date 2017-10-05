@@ -15,8 +15,8 @@ namespace WebApplication1.App_Start
             Mapper.Initialize(x =>
             {
                 x.CreateMap<EmployeeVM, Employee>().ReverseMap();
-                x.CreateMap<WebApplication1.ViewModel.Roles, DataAccess.Models.Roles>().ReverseMap();
-                x.CreateMap<WebApplication1.ViewModel.Features, DataAccess.Models.Features>().ReverseMap();
+                x.CreateMap<WebApplication1.ViewModel.RolesVM, DataAccess.Models.Roles>().ReverseMap();
+                x.CreateMap<WebApplication1.ViewModel.FeaturesVM, DataAccess.Models.Features>().ReverseMap();
             });
         }
     }
