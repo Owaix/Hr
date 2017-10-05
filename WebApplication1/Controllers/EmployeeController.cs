@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index(int? page)
         {
-            var item = EmpRep.GetAll();
+            var item = EmpRep.FindById(x => x.IsActive == true).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items.ToPagedList(page ?? 1, 10));
         }
@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
         {
             var item = EmpRep.FindById(x => x.Name == name).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
-            return View("Index",items.ToPagedList(1, 10));
+            return View("Index", items.ToPagedList(1, 10));
         }
         public ActionResult New()
         {
@@ -74,6 +74,13 @@ namespace WebApplication1.Controllers
             return Json(countrylist);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var EMpId = EmpRep.GetById(id);
+            EMpId.IsActive = false;
+            unitOfWork.Save();
+            return View("Index");
+        }
         public ActionResult ActionMethod(Country country)
         {
             return View();
@@ -92,6 +99,12 @@ namespace WebApplication1.Controllers
                 unitOfWork.Save();
                 return EmpVm;
             });
+        }
+        public ActionResult Edit(int id)
+        {
+            var Emp = EmpRep.FindById(x => x.Id == id).FirstOrDefault();
+            var items = Mapper.Map<EmployeeVM>(Emp);
+            return PartialView("_Edit", items);
         }
     }
     public class Country

@@ -16,5 +16,6 @@ namespace DataAccess.Models
         public String Designation { get; set; }
         public Nullable<float> Salary { get; set; }
         public Nullable<int> Age { get; set; }
+        public bool IsActive { get; set; }
     }
 }

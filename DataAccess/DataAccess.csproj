@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201710051241234_CreateEmp.Designer.cs">
       <DependentUpon>201710051241234_CreateEmp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710051503309_AddColIsActive.cs" />
+    <Compile Include="Migrations\201710051503309_AddColIsActive.Designer.cs">
+      <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\FeatureAccessConfig.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710051241234_CreateEmp.resx">
       <DependentUpon>201710051241234_CreateEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051503309_AddColIsActive.resx">
+      <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -43,7 +43,7 @@ namespace Service
         }
         public void Save()
         {
-            throw new NotImplementedException();
+            context.SaveChanges();
         }
     }
 }
