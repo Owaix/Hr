@@ -256,5 +256,25 @@
                 alert(response.d);
             }
         });
+
+      
+        var Uploadimage = function () {
+            var file = $("#imageBrowes").get(0).files;
+            var data = new FormData;
+            data.append("ImageFile", file[0]);
+            data.append("ProductName", "SamsungA8");
+            $.ajax({
+                type: "Post",
+                url: "/Test/ImageUpload",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    ClearPreview();
+                    $("#uploadedImage").append('<img src="/UploadedImage/' + response + '" class="img-responsive thumbnail"/>');
+                }
+            });
+        }
+
     });
 </script>
