@@ -50,6 +50,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,7 +73,12 @@
     <Compile Include="Migrations\201710051503309_AddColIsActive.Designer.cs">
       <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710061241166_AddAcademic.cs" />
+    <Compile Include="Migrations\201710061241166_AddAcademic.Designer.cs">
+      <DependentUpon>201710061241166_AddAcademic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AcademicProfile.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\FeatureAccessConfig.cs" />
     <Compile Include="Models\Features.cs" />
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710051503309_AddColIsActive.resx">
       <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061241166_AddAcademic.resx">
+      <DependentUpon>201710061241166_AddAcademic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
