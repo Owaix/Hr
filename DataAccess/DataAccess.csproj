@@ -61,17 +61,9 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="HrContext.cs" />
-    <Compile Include="Migrations\201710051238551_CreeteAll.cs" />
-    <Compile Include="Migrations\201710051238551_CreeteAll.Designer.cs">
-      <DependentUpon>201710051238551_CreeteAll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710051241234_CreateEmp.cs" />
-    <Compile Include="Migrations\201710051241234_CreateEmp.Designer.cs">
-      <DependentUpon>201710051241234_CreateEmp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710051503309_AddColIsActive.cs" />
-    <Compile Include="Migrations\201710051503309_AddColIsActive.Designer.cs">
-      <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
+    <Compile Include="Migrations\201710060715306_AddEveryThing.cs" />
+    <Compile Include="Migrations\201710060715306_AddEveryThing.Designer.cs">
+      <DependentUpon>201710060715306_AddEveryThing.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201710061241166_AddAcademic.cs" />
     <Compile Include="Migrations\201710061241166_AddAcademic.Designer.cs">
@@ -94,14 +86,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710051238551_CreeteAll.resx">
-      <DependentUpon>201710051238551_CreeteAll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710051241234_CreateEmp.resx">
-      <DependentUpon>201710051241234_CreateEmp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710051503309_AddColIsActive.resx">
-      <DependentUpon>201710051503309_AddColIsActive.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710060715306_AddEveryThing.resx">
+      <DependentUpon>201710060715306_AddEveryThing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710061241166_AddAcademic.resx">
       <DependentUpon>201710061241166_AddAcademic.cs</DependentUpon>

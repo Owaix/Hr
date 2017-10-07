@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index(int? page)
         {
-            var item = EmpRep.FindById(x => x.IsActive == true).ToList();
+            var item = EmpRep.FindById(x => x.IsActive == false).ToList();
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items.ToPagedList(page ?? 1, 10));
         }

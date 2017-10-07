@@ -3,7 +3,7 @@ namespace DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreeteAll : DbMigration
+    public partial class AddEveryThing : DbMigration
     {
         public override void Up()
         {
@@ -18,24 +18,12 @@ namespace DataAccess.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            DropTable("dbo.Employees");
+            AddColumn("dbo.Employees", "IsActive", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            CreateTable(
-                "dbo.Employees",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Department = c.String(),
-                        Designation = c.String(),
-                        Salary = c.Single(),
-                        Age = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
+            DropColumn("dbo.Employees", "IsActive");
             DropTable("dbo.FeatureAccessConfigs");
         }
     }
