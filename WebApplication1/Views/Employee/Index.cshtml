@@ -41,7 +41,7 @@
                             <a class="btn btn-primary btn-lg" href="@Url.Action("New", "Employee")"><span class="fa fa-plus"></span>   Add</a>
                             <a class="btn btn-default btn-lg" href="@Url.Action("New", "Employee")"><span class="fa fa-print"></span></a>
                             <a class="btn btn-default btn-lg" href="@Url.Action("New", "Employee")"><span class="fa fa-file-excel-o"></span></a>
-                            <select style="height: 45px;" class="btn btn-default btn-lg"><option>Active</option><option>In-Active</option></select>
+                            <select id="ddlIsActive" style="height: 45px;" class="btn btn-default btn-lg"><option value="1">Active</option><option value="2">In-Active</option></select>
                         </div>
                     </div>
                 </div>
@@ -59,25 +59,8 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @{
-                                    foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@item.Id</td>
-                                            <td>@item.Name</td>
-                                            <td>@item.Designation</td>
-                                            <td>@item.Department</td>
-                                            <td>@item.Salary</td>
-                                            <td>
-                                                <i class="btn-group">
-                                                    <a class="btn btn-primary" id="lnkEdit" href="#"><i class="icon_plus_alt2"></i></a>
-                                                    <a class="btn btn-success" href="@Url.Action("Edit", "Employee", new { id = item.Id })"><i class="fa fa-eye"></i></a>
-                                                    <a class="btn btn-danger" href="@Url.Action("Delete", "Employee", new { id = item.Id })"><i class="icon_close_alt2"></i></a>
-                                                </i>
-                                            </td>
-                                        </tr>}
-                                }
+                            <tbody class="RenderPartial">
+                                @*@Html.Partial("_EmpList", Model)*@
                             </tbody>
                         </table>
                         @Html.PagedListPager(Model, page => Url.Action("Index", new
@@ -97,6 +80,40 @@
         $("#myModal").modal();
         $("#modelBody").html("Modal Has Clicked");
     });
+
+    $("#ddlIsActive").change(function () {
+        var val = $('#ddlIsActive').val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Index", "Employee")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            data: JSON.stringify({ IsTrue: val }),
+            success: function (datas) {
+                $('.RenderPartial').html(datas);
+            },
+            error: function (err) {
+                console.log('ERROR', err);
+            }
+        });
+    });
+    $("#txtdptSrch").on("keyup", function () {
+        var value = $(this).val();
+        $(".table tr").each(function (index, value) {
+            console.log(index + value);
+            if (index !== 0) {
+                $row = $(this);
+                var id = $row.find("td:first").text();
+                if (id.indexOf(value) !== 0) {
+                    $row.hide();
+                }
+                else {
+                    $row.show();
+                }
+            }
+        });
+    });
+
 
     $("#btnSrchDept").click(function () {
         var val = $('#txtdptSrch').val();

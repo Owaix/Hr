@@ -9,6 +9,7 @@ using Common;
 using DataAccess.Models;
 using DataAccess;
 using PagedList;
+using System.IO;
 
 namespace WebApplication1.Controllers
 {
@@ -30,6 +31,15 @@ namespace WebApplication1.Controllers
             var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
             return View(items.ToPagedList(page ?? 1, 10));
         }
+        [HttpPost]
+        public ActionResult Index(int IsTrue)
+        {
+            int? page = null;
+            var item = EmpRep.FindById(x => x.IsActive == (IsTrue == 1 ? true : false)).ToList();
+            var items = Mapper.Map<IEnumerable<EmployeeVM>>(item);
+            return PartialView("_EmpList", items.ToPagedList(page ?? 1, 10));
+        }
+
         [HttpPost]
         public ActionResult SearchList(String name)
         {
@@ -73,7 +83,6 @@ namespace WebApplication1.Controllers
             countrylist.Add(new Country { Id = 5, Name = "Smith" });
             return Json(countrylist);
         }
-
         public ActionResult Delete(int id)
         {
             var EMpId = EmpRep.GetById(id);
@@ -85,8 +94,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-
         public EmployeeVM AddEmp(EmployeeVM EmpVm)
         {
             return ServiceHelper.ExecuteSafely<EmployeeVM>(() =>
@@ -105,6 +112,19 @@ namespace WebApplication1.Controllers
             var Emp = EmpRep.FindById(x => x.Id == id).FirstOrDefault();
             var items = Mapper.Map<EmployeeVM>(Emp);
             return PartialView("_Edit", items);
+        }
+
+        public JsonResult UploadMedia(AcademicProfileVM academic)
+        {
+            var file = academic.ImageFile;
+            if (file != null)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var FileNameWithourExt = Path.GetFileNameWithoutExtension(file.FileName);
+                file.SaveAs(Server.MapPath("/Uploads/" + file.FileName));
+            }
+            return Json(file.FileName, JsonRequestBehavior.AllowGet);
         }
     }
     public class Country
