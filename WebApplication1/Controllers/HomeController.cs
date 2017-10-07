@@ -6,8 +6,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
+using WebApplication1.Models;
 using WebApplication1.ViewModel;
 
 
@@ -18,6 +21,11 @@ namespace WebApplication1.Controllers
         private UnitOfWork unitOfWork;
         private Repository<Roles> RolRep;
         private Repository<Features> FeaRep;
+        List<ExcelClient> ClientsList = new List<ExcelClient>
+            {
+               //  new ExcelClient ( "Adam",  "Bielecki",  DateTime.ParseExact("22/05/1986"),       "adamb@example.com" ),
+                 new ExcelClient (  "George", "Smith",  DateTime.Parse("10/10/1990"),  "george@example.com" )
+            };
 
         public HomeController()
         {
@@ -60,8 +68,26 @@ namespace WebApplication1.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+            return View(ClientsList);
+        }
+        public void ExportClientsListToCSV()
+        {
+            StringWriter sw = new StringWriter();
+            sw.WriteLine("\"First Name\",\"Last Name\",\"DOB\",\"Email\"");
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment;filename=Exported_Users.csv");
+            Response.ContentType = "text/csv";
 
-            return View();
+            foreach (var line in ClientsList)
+            {
+                sw.WriteLine(string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\"",
+                                           line.FirstName,
+                                           line.LastName,
+                                           line.Dob,
+                                           line.Email));
+            }
+            Response.Write(sw.ToString());
+            Response.End();
         }
     }
 }

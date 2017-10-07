@@ -258,6 +258,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ExcelClient.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1441,13 +1442,13 @@
     <Content Include="Template\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Employee\New.cshtml" />
-    <Content Include="Views\Employee\_Edit.cshtml" />
     <Content Include="Views\Employee\UploadFile.cshtml" />
     <Content Include="Views\Home\AccessConfig.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Dashboard\Indexer.cshtml" />
     <Content Include="Views\Employee\_EmpList.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\jquery-file-upload\server\php\files\thumbnail\" />

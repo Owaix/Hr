@@ -10,6 +10,7 @@ using DataAccess.Models;
 using DataAccess;
 using PagedList;
 using System.IO;
+using System.Web.UI;
 
 namespace WebApplication1.Controllers
 {
@@ -107,24 +108,47 @@ namespace WebApplication1.Controllers
                 return EmpVm;
             });
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             var Emp = EmpRep.FindById(x => x.Id == id).FirstOrDefault();
             var items = Mapper.Map<EmployeeVM>(Emp);
-            return PartialView("_Edit", items);
+            return PartialView(items);
         }
 
-        public JsonResult UploadMedia(AcademicProfileVM academic)
+        //public JsonResult UploadMedia(AcademicProfileVM academic)
+        //{
+        //    var file = academic.ImageFile;
+        //    if (file != null)
+        //    {
+        //        var fileName = Path.GetFileName(file.FileName);
+        //        var extension = Path.GetExtension(file.FileName);
+        //        var FileNameWithourExt = Path.GetFileNameWithoutExtension(file.FileName);
+        //        file.SaveAs(Server.MapPath("/Uploads/" + file.FileName));
+        //    }
+        //    return Json(file.FileName, JsonRequestBehavior.AllowGet);
+        //}
+        public void ExportClientsListToExcel()
         {
-            var file = academic.ImageFile;
-            if (file != null)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var extension = Path.GetExtension(file.FileName);
-                var FileNameWithourExt = Path.GetFileNameWithoutExtension(file.FileName);
-                file.SaveAs(Server.MapPath("/Uploads/" + file.FileName));
-            }
-            return Json(file.FileName, JsonRequestBehavior.AllowGet);
+            var grid = new System.Web.UI.WebControls.GridView();
+            grid.DataSource = /*from d in dbContext.diners
+                              where d.user_diners.All(m => m.user_id == userID) && d.active == true */
+                              from d in EmpRep.GetAll()
+                              select new
+                              {
+                                  Name = d.Name,
+                                  Age = d.Age,
+                                  Department = d.Department,
+                                  Designation = d.Designation
+                              };
+            grid.DataBind();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=Exported_Diners.xls");
+            Response.ContentType = "application/excel";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            grid.RenderControl(htw);
+            Response.Write(sw.ToString());
+            Response.End();
         }
     }
     public class Country
