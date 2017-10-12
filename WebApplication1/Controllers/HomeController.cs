@@ -63,7 +63,26 @@ namespace WebApplication1.Controllers
             Fr.Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
             var FeatModel = db.feature.ToList();//FeaRep.GetAll();
             Fr.Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
-            return View(Fr);
+            return View();
+        }
+        public ActionResult AccessConfigJson()
+        {
+            HrContext db = new HrContext();
+            FeatureRoles Fr = new FeatureRoles();
+            var RolesModel = db.role.ToList();// RolRep.GetAll();
+            Fr.Role = Mapper.Map<IEnumerable<RolesVM>>(RolesModel);
+            var FeatModel = db.feature.ToList();//FeaRep.GetAll();
+            Fr.Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
+            return Json(Fr, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult AddFeature(int[] Feature)
+        {
+            var FRcon = new FeatureAccessConfig();
+            //FRcon.Feature_Id = Feature;
+            //FRcon.Role_Id = Role;
+            FRcon.IsCheck = true;
+            unitOfWork.Save();
+            return Json("Inserted");
         }
         public ActionResult Contact()
         {

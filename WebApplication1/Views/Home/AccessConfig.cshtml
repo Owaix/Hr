@@ -1,41 +1,87 @@
-﻿
-@{
+﻿@{
     @model WebApplication1.ViewModel.FeatureRoles
     ViewBag.Title = "AccessConfig";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th></th>
-            @foreach (var item in Model.Role)
-            {
-                <th>@item.Name</th>
+ 
+</table>
+<input type="button" value="Button" id="btn" />
+<script>
+    $.ajax({
+        type: "GET",
+        url: "/Home/AccessConfigJson",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (datas) {
+            var table = '';
+            table += '<tr>';
+            table += '<th>';
+            table += '</th>';
+            var Role = datas.Role;
+            for (var i = 0; i < Role.length ; i++) {
+                table += '<th>';
+                table += Role[i].Name;
+                table += '</th>';
             }
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            @foreach (var item in Model.Feature)
-            {
-            <tr>
-                <td class="col-md-2">@item.Name</td>
-                @foreach (var role in Model.Role)
-                {
-                    <td class="tds"><input id="cbChk" type="checkbox" value="@(item.id + "_"+role.Id)" /></td>
+            table += '</tr>';
+            var Feature = datas.Feature;
+            for (var i = 0; i < Feature.length ; i++) {
+                table += '<tr>';
+                table += '<td>';
+                table += Feature[i].Name;
+                table += '</td>';
+                for (var j = 0; j < Role.length ; j++) {
+                    table += '<td>';
+                    table += "<input type='checkbox' value='(" + +Feature[i].id + "_" + Role[j].Id + ")'>";
+                    table += '</td>';
                 }
-            </tr>
+                table += '<tr>';
             }
-        </tbody>
-    </table>
-    <input type="button" value="Button" id="btn" />
-    <script>
-        $('#btn').click(function () {
-            $('.table td input:checked').each(function (index, row) {
-                var txt = $(row).val();
-                var arr = txt.split('_');
-                console.log(arr[0] + '____' + arr[1]);
-            });
+            $('.table-bordered').html(table);
+        },
+        error: function (request, status, error) {
+            alert(request, status, error);
+        }
+    });
+
+        var Feat = [];
+        var arr = [];
+        $('.table td input:checkbox').each(function (index, row) {
+            var txt = $(row).val();
+            var arr = txt.split('_');
+            Feat.push(arr);
+            console.log(arr[0] + '____' + arr[1]);
         });
-    </script>
+
+
+    $('#btn').click(function () {
+        var Feat = [];
+        var arr = [];
+        $('.table td input:checked').each(function (index, row) {
+            var txt = $(row).val();
+            var arr = txt.split('_');
+            Feat.push(arr);
+            console.log(arr[0] + '____' + arr[1]);
+            //Feat.push(arr[0]);
+            //Role.push(arr[1]);
+        });
+        $.ajax({
+            type: "POST",
+            url: "/Home/AddFeature",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ Feature: Feat }),
+            success: function (datas) {
+                for (var i = 0; i < datas.length ; i++) {
+                    var Val = datas[i].Name + " " + datas[i].Id;
+                    alert(Val);
+                }
+            },
+            error: function (request, status, error) {
+                alert(request, status, error);
+            }
+        });
+    });
+</script>
