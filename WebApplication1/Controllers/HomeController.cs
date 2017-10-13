@@ -19,6 +19,7 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private UnitOfWork unitOfWork;
+        private Repository<FeatureAccessConfig> FeatureConfig;
         private Repository<Roles> RolRep;
         private Repository<Features> FeaRep;
         List<ExcelClient> ClientsList = new List<ExcelClient>
@@ -32,7 +33,7 @@ namespace WebApplication1.Controllers
             unitOfWork = new UnitOfWork(new HrContext());
             RolRep = unitOfWork.Repository<Roles>();
             FeaRep = unitOfWork.Repository<Features>();
-
+            FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
         }
         [Authorize]
         public ActionResult Index()
@@ -75,7 +76,13 @@ namespace WebApplication1.Controllers
             Fr.Feature = Mapper.Map<IEnumerable<FeaturesVM>>(FeatModel);
             return Json(Fr, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult AddFeature(int[] Feature)
+        public JsonResult GetFeature()
+        {
+            var getFeatures = FeatureConfig.GetAll();
+            return Json(getFeatures, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult AddFeature(int[] Feature, int[] Role)
         {
             var FRcon = new FeatureAccessConfig();
             //FRcon.Feature_Id = Feature;

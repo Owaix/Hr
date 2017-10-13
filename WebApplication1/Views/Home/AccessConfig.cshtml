@@ -4,10 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
-<table class="table table-bordered">
- 
-</table>
-<input type="button" value="Button" id="btn" />
+<table class="table table-bordered"></table>
+<input type="button"  class="btn btn-default" value="Button" id="btn" />
 <script>
     $.ajax({
         type: "GET",
@@ -34,7 +32,7 @@
                 table += '</td>';
                 for (var j = 0; j < Role.length ; j++) {
                     table += '<td>';
-                    table += "<input type='checkbox' value='(" + +Feature[i].id + "_" + Role[j].Id + ")'>";
+                    table += "<input type='checkbox' value='" + +Feature[i].id + "_" + Role[j].Id + "'>";
                     table += '</td>';
                 }
                 table += '<tr>';
@@ -46,33 +44,52 @@
         }
     });
 
-        var Feat = [];
-        var arr = [];
-        $('.table td input:checkbox').each(function (index, row) {
-            var txt = $(row).val();
-            var arr = txt.split('_');
-            Feat.push(arr);
-            console.log(arr[0] + '____' + arr[1]);
-        });
+    var Feat = [];
+    var arr = [];
+    $('.table td input:checkbox').each(function (index, row) {
+        var txt = $(row).val();
+        var arr = txt.split('_');
+        Feat.push(arr);
+        console.log(arr[0] + '____' + arr[1]);
+    });
 
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetFeature",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            $('.table td input:checkbox').each(function (index, row) {
+                var Feature = parseInt($(row).val().split("_")[0]);
+                var Role = parseInt($(row).val().split("_")[1]);
+                for (var i = 0; i < data.length ; i++) {
+                    if (data[i].Feature_Id == Feature && data[i].Role_Id == Role && data[i].IsCheck == true) {
+                        $(this).attr("Checked", true);
+                    }
+                }
+            });
+        },
+        error: function (request, status, error) {
+            alert(request, status, error);
+        }
+    });
 
     $('#btn').click(function () {
         var Feat = [];
-        var arr = [];
+        var Rol = [];
         $('.table td input:checked').each(function (index, row) {
             var txt = $(row).val();
             var arr = txt.split('_');
-            Feat.push(arr);
             console.log(arr[0] + '____' + arr[1]);
-            //Feat.push(arr[0]);
-            //Role.push(arr[1]);
+            Feat.push(arr[0]);
+            Rol.push(arr[1]);
         });
         $.ajax({
             type: "POST",
             url: "/Home/AddFeature",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify({ Feature: Feat }),
+            data: JSON.stringify({ Feature: Feat, Role: Rol }),
             success: function (datas) {
                 for (var i = 0; i < datas.length ; i++) {
                     var Val = datas[i].Name + " " + datas[i].Id;

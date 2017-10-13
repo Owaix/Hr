@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class FeatureAccessConfig
+    public class FeatureAccessConfig : BaseEntity
     {
         [Key]
         public int Id { get; set; }
