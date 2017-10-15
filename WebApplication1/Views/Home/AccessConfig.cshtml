@@ -5,7 +5,7 @@
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <table class="table table-bordered"></table>
-<input type="button"  class="btn btn-default" value="Button" id="btn" />
+<input type="button" class="btn btn-default" value="Button" id="btn" />
 <script>
     $.ajax({
         type: "GET",
@@ -77,23 +77,32 @@
     $('#btn').click(function () {
         var Feat = [];
         var Rol = [];
-        $('.table td input:checked').each(function (index, row) {
-            var txt = $(row).val();
-            var arr = txt.split('_');
-            console.log(arr[0] + '____' + arr[1]);
-            Feat.push(arr[0]);
-            Rol.push(arr[1]);
+        var IsTrue = [];
+        $('.table td input').each(function (index, row) {
+            var Feature = parseInt($(row).val().split("_")[0]);
+            var Role = parseInt($(row).val().split("_")[1]);
+            var checked = 0;
+            if ($(row).is(':checked')) {
+                checked = 1;
+            } else {
+                checked = 0;
+            }
+            IsTrue.push(checked);
+            console.log(Feature + '____' + Role + " " + checked);
+            Feat.push(Feature);
+            Rol.push(Role);
         });
+        var JsonModel = { Feature: Feat, Role: Rol, IsActive: IsTrue }
         $.ajax({
             type: "POST",
             url: "/Home/AddFeature",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify({ Feature: Feat, Role: Rol }),
+            data: JSON.stringify({ FeatureRole: JsonModel }),
             success: function (datas) {
                 for (var i = 0; i < datas.length ; i++) {
                     var Val = datas[i].Name + " " + datas[i].Id;
-                    alert(Val);
+                    //     alert(Val);
                 }
             },
             error: function (request, status, error) {
