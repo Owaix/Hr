@@ -61,17 +61,9 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="HrContext.cs" />
-    <Compile Include="Migrations\201710060715306_AddEveryThing.cs" />
-    <Compile Include="Migrations\201710060715306_AddEveryThing.Designer.cs">
-      <DependentUpon>201710060715306_AddEveryThing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710061241166_AddAcademic.cs" />
-    <Compile Include="Migrations\201710061241166_AddAcademic.Designer.cs">
-      <DependentUpon>201710061241166_AddAcademic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710070923216_UpdateAll.cs" />
-    <Compile Include="Migrations\201710070923216_UpdateAll.Designer.cs">
-      <DependentUpon>201710070923216_UpdateAll.cs</DependentUpon>
+    <Compile Include="Migrations\201710201057328_new.cs" />
+    <Compile Include="Migrations\201710201057328_new.Designer.cs">
+      <DependentUpon>201710201057328_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicProfile.cs" />
@@ -86,14 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710060715306_AddEveryThing.resx">
-      <DependentUpon>201710060715306_AddEveryThing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061241166_AddAcademic.resx">
-      <DependentUpon>201710061241166_AddAcademic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710070923216_UpdateAll.resx">
-      <DependentUpon>201710070923216_UpdateAll.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710201057328_new.resx">
+      <DependentUpon>201710201057328_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
