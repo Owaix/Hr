@@ -270,6 +270,7 @@
     <Compile Include="ViewModel\RolesVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular\MyApp.js" />
     <Content Include="App_Data\HRMSDb.mdf" />
     <Content Include="App_Data\HRMSDb_log.ldf">
       <DependentUpon>HRMSDb.mdf</DependentUpon>
@@ -713,6 +714,8 @@
     <Content Include="Img\user.jpg" />
     <Content Include="Img\user22.png" />
     <Content Include="Scripts\additional-methods.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap-switch.js" />
     <Content Include="Scripts\bootstrap-wysiwyg-custom.js" />
     <Content Include="Scripts\bootstrap-wysiwyg.js" />
