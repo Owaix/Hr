@@ -250,9 +250,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="CustomMembership\AccountMembershipService.cs" />
+    <Compile Include="CustomMembership\CustomMembershipProvider.cs" />
+    <Compile Include="CustomMembership\CustomRoleProvider.cs" />
+    <Compile Include="CustomMembership\FormsAuthenticationUserData.cs" />
+    <Compile Include="CustomMembership\IMembershipService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IdentityExtensions\CustomPasswordValidator.cs" />
+    <Compile Include="Mappings\IAutoMap.cs" />
+    <Compile Include="Mappings\ModelMapping.cs" />
     <Compile Include="Migrations\201709261427203_addRole.cs" />
     <Compile Include="Migrations\201709261427203_addRole.Designer.cs">
       <DependentUpon>201709261427203_addRole.cs</DependentUpon>
@@ -269,6 +277,7 @@
     <Compile Include="ViewModel\FeatureRoles.cs" />
     <Compile Include="ViewModel\FeaturesVM.cs" />
     <Compile Include="ViewModel\RolesVM.cs" />
+    <Compile Include="ViewModel\UserIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Angular\MyApp.js" />
