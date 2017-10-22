@@ -64,12 +64,7 @@
                                 @*@Html.Partial("_EmpList", Model)*@
                             </tbody>
                         </table>
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new
-                   {
-                       page,
-                       searchBy = Request.QueryString["searchBy"],
-                       search = Request.QueryString["search"]
-                   }))
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }))
                     </div>
                 </div>
             </div>
