@@ -87,24 +87,20 @@ namespace WebApplication1.Controllers
             for (int i = 0; i < FeatureRole.Feature.Length; i++)
             {
                 var FRcon = FeatureConfig.FindById(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
-                FRcon.Feature_Id = FeatureRole.Feature[i];
-                FRcon.Role_Id = FeatureRole.Role[i];
-                FRcon.IsCheck = FeatureRole.IsActive[i] == 1 ? true : false;
-                FeatureConfig.Add(FRcon);
-                //var FRcon = FeatureConfig.FindById(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
-                //if (FRcon != null)
-                //{
-                //    FRcon.Feature_Id = FeatureRole.Feature[i];
-                //    FRcon.Role_Id = FeatureRole.Role[i];
-                //    FRcon.IsCheck = FeatureRole.IsActive[i] == 1 ? true : false;
-                //}
-                //else
-                //{
-                //    FRcon.Feature_Id = FeatureRole.Feature[i];
-                //    FRcon.Role_Id = FeatureRole.Role[i];
-                //    FRcon.IsCheck = FeatureRole.IsActive[i] == 1 ? true : false;
-                //    FeatureConfig.Add(FRcon);
-                //}
+                if (FRcon != null)
+                {
+                    FRcon.Feature_Id = FeatureRole.Feature[i];
+                    FRcon.Role_Id = FeatureRole.Role[i];
+                    FRcon.IsCheck = FeatureRole.IsActive[i] == 1 ? true : false;
+                }
+                else
+                {
+                    FRcon = new FeatureAccessConfig();
+                    FRcon.Feature_Id = FeatureRole.Feature[i];
+                    FRcon.Role_Id = FeatureRole.Role[i];
+                    FRcon.IsCheck = FeatureRole.IsActive[i] == 1 ? true : false;
+                    FeatureConfig.Add(FRcon);
+                }
             }
             unitOfWork.Save();
             return Json("Inserted");
