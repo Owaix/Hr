@@ -84,7 +84,7 @@ namespace WebApplication1.Controllers
 
         public JsonResult AddFeature(AllAccessConfig FeatureRole)
         {
-            for (int i = 0; i < FeatureRole.Feature.Length; i++)
+            for (int i = 1; i < FeatureRole.Feature.Length; i++)
             {
                 var FRcon = FeatureConfig.FindById(x => x.Feature_Id == FeatureRole.Feature[i] && x.Role_Id == FeatureRole.Role[i]).FirstOrDefault();
                 if (FRcon != null)
