@@ -1,4 +1,6 @@
-﻿<div id="sidebar" class="nav-collapse ">
+﻿@model IEnumerable<WebApplication1.ViewModel.GetMenu>
+
+<div id="sidebar" class="nav-collapse ">
     <!-- sidebar menu start-->
     <ul class="sidebar-menu">
         <li class="active">
@@ -65,11 +67,29 @@
             <ul class="sub">
                 <li><a class="" href="profile.html">Profile</a></li>
                 <li><a class="" href="@Url.Action("AccessConfig","Home")"><span>Access Config</span></a></li>
-                <li><a class="" href="blank.html">Blank Page</a></li>
+                <li><a class="" href="#/Blank">Blank Page</a></li>
                 <li><a class="" href="404.html">404 Error</a></li>
             </ul>
         </li>
-
+        @*@foreach (var menu in Model)
+        {
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="@menu.Class"></i>
+                    <span>@menu.Menu</span>
+                    @if (menu.Submenu.Menu_Id < 1)
+                    {
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    }
+                </a>
+                @foreach (var sub in menu)
+                {
+                    <ul class="sub">
+                        <li><a class="" href="profile.html">Profile</a></li>
+                    </ul>
+                }
+            </li>
+        }*@
     </ul>
     <!-- sidebar menu end-->
 </div>

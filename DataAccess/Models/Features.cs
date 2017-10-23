@@ -12,6 +12,7 @@ namespace DataAccess.Models
         [Key]
         public int id { get; set; }
         public String Name { get; set; }
-        public Nullable<int> SubMenuId { get; set; }
+        public String Class { get; set; }
+        public Nullable<int> MenuId { get; set; }
     }
 }

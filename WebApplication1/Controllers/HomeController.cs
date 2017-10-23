@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             FeaRep = unitOfWork.Repository<Features>();
             FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
         }
-        [Authorize]
+      //  [Authorize]
         public ActionResult Index()
         {
             //UserManager.AddToRole(user.Id, model.Role);

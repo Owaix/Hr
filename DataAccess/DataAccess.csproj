@@ -65,6 +65,14 @@
     <Compile Include="Migrations\201710201057328_new.Designer.cs">
       <DependentUpon>201710201057328_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710210914220_changename.cs" />
+    <Compile Include="Migrations\201710210914220_changename.Designer.cs">
+      <DependentUpon>201710210914220_changename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710210917303_changenam.cs" />
+    <Compile Include="Migrations\201710210917303_changenam.Designer.cs">
+      <DependentUpon>201710210917303_changenam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicProfile.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -80,6 +88,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710201057328_new.resx">
       <DependentUpon>201710201057328_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710210914220_changename.resx">
+      <DependentUpon>201710210914220_changename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710210917303_changenam.resx">
+      <DependentUpon>201710210917303_changenam.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

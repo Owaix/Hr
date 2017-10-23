@@ -267,6 +267,7 @@
     <Compile Include="ViewModel\Employee.cs" />
     <Compile Include="ViewModel\FeatureRoles.cs" />
     <Compile Include="ViewModel\FeaturesVM.cs" />
+    <Compile Include="ViewModel\GetMenu.cs" />
     <Compile Include="ViewModel\RolesVM.cs" />
   </ItemGroup>
   <ItemGroup>
