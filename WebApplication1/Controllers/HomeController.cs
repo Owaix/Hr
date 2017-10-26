@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.UI;
 using WebApplication1.Models;
@@ -18,6 +19,7 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        UserManager<ApplicationUser> _user;
         private UnitOfWork unitOfWork;
         private Repository<FeatureAccessConfig> FeatureConfig;
         private Repository<Roles> RolRep;
@@ -28,14 +30,15 @@ namespace WebApplication1.Controllers
                  new ExcelClient (  "George", "Smith",  DateTime.Parse("10/10/1990"),  "george@example.com" )
             };
 
-        public HomeController()
+        public HomeController(UserManager<ApplicationUser> user)
         {
+            _user = user;
             unitOfWork = new UnitOfWork(new HrContext());
             RolRep = unitOfWork.Repository<Roles>();
             FeaRep = unitOfWork.Repository<Features>();
             FeatureConfig = unitOfWork.Repository<FeatureAccessConfig>();
         }
-      //  [Authorize]
+        //  [Authorize]
         public ActionResult Index()
         {
             //UserManager.AddToRole(user.Id, model.Role);
@@ -50,12 +53,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public async Task<Iaction> ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
         public ActionResult AccessConfig()
         {
             HrContext db = new HrContext();

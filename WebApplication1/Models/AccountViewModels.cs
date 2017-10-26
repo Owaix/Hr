@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
@@ -64,6 +65,11 @@ namespace WebApplication1.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "First Name")]
+        public String FirstName { get; set; }
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
