@@ -56,6 +56,7 @@
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="ServiceHelp.cs" />
     <Compile Include="ServiceHelper.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
