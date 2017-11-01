@@ -1,9 +1,9 @@
-using Com.LT.Scheduler.Entities;
+//using Com.LT.Scheduler.Entities;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Com.LT.Scheduler.DBContexts
+namespace Common
 {
     /// <summary>
     /// Companies DBContext class that execute methods against database

@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace Com.LT.Scheduler
+namespace Common
 {
     /// <summary>
     /// Support Controller class to execute storedprocedure on database
