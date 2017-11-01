@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.Security;
-using DataAccess.BLL;
 using Web.CustomMembership;
 
 namespace Web.CustomMembership
@@ -88,4 +87,5 @@ namespace Web.CustomMembership
             }
         }
     }
+    public class User { }
 }
