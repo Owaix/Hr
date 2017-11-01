@@ -242,20 +242,12 @@
     <Compile Include="App_Start\IdentityExtension.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="CustomMembership\AccountMembershipService.cs" />
-    <Compile Include="CustomMembership\CustomMembershipProvider.cs" />
-    <Compile Include="CustomMembership\CustomRoleProvider.cs" />
-    <Compile Include="CustomMembership\FormsAuthenticationUserData.cs" />
-    <Compile Include="CustomMembership\IdentityExtensions.cs" />
-    <Compile Include="CustomMembership\IMembershipService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,7 +258,6 @@
     <Compile Include="Migrations\201709261427203_addRole.Designer.cs">
       <DependentUpon>201709261427203_addRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ExcelClient.cs" />
@@ -279,7 +270,6 @@
     <Compile Include="ViewModel\FeaturesVM.cs" />
     <Compile Include="ViewModel\GetMenu.cs" />
     <Compile Include="ViewModel\RolesVM.cs" />
-    <Compile Include="ViewModel\UserIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\HRMSDb.mdf" />

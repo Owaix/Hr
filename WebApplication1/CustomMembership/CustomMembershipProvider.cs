@@ -3,8 +3,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
-using DataAccess.BLL;
-using Service.Contracts;
 
 namespace Web.CustomMembership
 {

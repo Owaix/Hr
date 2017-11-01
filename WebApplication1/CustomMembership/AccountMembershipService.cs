@@ -88,4 +88,8 @@ namespace Web.CustomMembership
             }
         }
     }
+    public class User
+    {
+        public String Username { get; set; }
+    }
 }
