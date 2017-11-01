@@ -253,6 +253,7 @@
     <Compile Include="CustomMembership\CustomMembershipProvider.cs" />
     <Compile Include="CustomMembership\CustomRoleProvider.cs" />
     <Compile Include="CustomMembership\FormsAuthenticationUserData.cs" />
+    <Compile Include="CustomMembership\IdentityExtensions.cs" />
     <Compile Include="CustomMembership\IMembershipService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
