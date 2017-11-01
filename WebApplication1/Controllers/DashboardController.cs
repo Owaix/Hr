@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -13,10 +15,11 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        public ActionResult Indexer()
-        {
-            return View();
-        }
+        //public async Task<IActionResult> Indexer()
+        //{
+        //    ApplicationUser user  = await 
+        //    return View();
+        //}
         [HttpPost]
         public ActionResult Indexr()
         {

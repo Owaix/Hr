@@ -238,7 +238,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\UI- Copy.cs" />
     <Compile Include="App_Start\IdentityExtension.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1360,7 +1359,6 @@
     <Content Include="Template\readme.txt" />
     <Content Include="Template\widgets.html" />
     <Content Include="Views\Home\Home.html" />
-    <Content Include="WeAPi.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
