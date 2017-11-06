@@ -247,9 +247,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="IdentityExtensions\CustomPasswordValidator.cs" />
     <Compile Include="Mappings\IAutoMap.cs" />
     <Compile Include="Mappings\ModelMapping.cs" />
@@ -275,7 +272,6 @@
     <Content Include="App_Data\HRMSDb_log.ldf">
       <DependentUpon>HRMSDb.mdf</DependentUpon>
     </Content>
-    <Content Include="Global.asax" />
     <Content Include="Scripts\MyApp.js" />
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
