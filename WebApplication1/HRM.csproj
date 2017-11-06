@@ -275,6 +275,7 @@
     <Content Include="App_Data\HRMSDb_log.ldf">
       <DependentUpon>HRMSDb.mdf</DependentUpon>
     </Content>
+    <Content Include="Global.asax" />
     <Content Include="Scripts\MyApp.js" />
     <Content Include="Assets\chart-master\.gitignore" />
     <Content Include="Assets\chart-master\Chart.js" />
@@ -783,7 +784,6 @@
     <Content Include="Scripts\xcharts.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
     <Content Include="Assets\chart-master\component.json" />
     <Content Include="Assets\chart-master\docs\prettify.less" />
     <Content Include="Assets\chart-master\docs\styles.less" />
