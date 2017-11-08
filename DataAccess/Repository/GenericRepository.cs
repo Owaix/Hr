@@ -10,7 +10,6 @@ namespace DataAccess.Repository
         private DbContext entities = null;
         IDbSet<T> _objectSet;
 
-
         public GenericRepository(DbContext _entities)
         {
             entities = _entities;
