@@ -2,13 +2,14 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Entity;
 
-namespace Common
+namespace DataAccess
 {
     /// <summary>
     /// Companies DBContext class that execute methods against database
     /// </summary>
-    class CompaniesContext : DBContext
+    class CompaniesContext : DbContext
     {
         #region ----- Stored Procedures -----
 
@@ -186,11 +187,11 @@ namespace Common
             {
                 foreach (Companies item in objCompaniesList)
                 {
-                    if (item.compID == 0) 
+                    if (item.compID == 0)
                     { item.compID = Insert(item, sqlCmd); }
                     else if (item.compID > 0) { Update(item, sqlCmd); }
                     else { throw new InvalidOperationException("Companies object was not in specified format"); }
-                    
+
                 }
                 return objCompaniesList.Count;
             }
@@ -294,11 +295,11 @@ namespace Common
             {
                 foreach (Companies item in objCompaniesList)
                 {
-                    if (item.compID == 0) 
+                    if (item.compID == 0)
                     { item.compID = Insert(item, sqlCmd); }
                     else if (item.compID > 0) { Update(item, sqlCmd); }
                     else { throw new InvalidOperationException("Companies object was not in specified format"); }
-                    
+
                 }
                 return objCompaniesList.Count;
             }
@@ -459,7 +460,7 @@ namespace Common
             if (sqlOperation == SqlOperation.Delete)
             {
                 sqlCommand.Parameters.Clear();
-            sqlCommand.Parameters.AddWithValue("@compID", objCompanies.compID);
+                sqlCommand.Parameters.AddWithValue("@compID", objCompanies.compID);
             }
 
             DBContext.AttachParameters(sqlCommand, objCompanies, sqlOperation);

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LT.QMS.Common.Entities;
 
-namespace LT.QMS.Data.Repository
+namespace DataAccess.Repository
 {
     public class TicketRepo : ITicketRepo
     {

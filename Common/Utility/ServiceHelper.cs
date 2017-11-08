@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LT.QMS.Common.Utility
+namespace Common.Utility
 {
     public static class ServiceHelper
     {
@@ -20,8 +20,6 @@ namespace LT.QMS.Common.Utility
         {
             _logger = LogManager.GetCurrentClassLogger();
         }
-
-
         public static T ExecuteSafely<T>(EntityMethodDelegate<T> codeBlock)
         {
             T retVal = default(T);
@@ -50,7 +48,5 @@ namespace LT.QMS.Common.Utility
 
             return (retVal);
         }
-
-
     }
 }

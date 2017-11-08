@@ -11,13 +11,9 @@ namespace WebApplication1.App_Start
 {
     public static class IdentityExtensions
     {
-        //public static IList<Claim> GetAllUserClaims(this IIdentity identityUser)
-        //{
-
-
-
-
-        //    return null;
-        //}
+        public static ApplicationUser GetUser(this IIdentity identity)
+        {
+            return GetClaim<ApplicationUser>(identity, UserClaims.User);
+        }
     }
 }

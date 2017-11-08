@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Com.LT.Scheduler.Entities
+namespace Common.Extensions
 {
     public static class Extensions
     {

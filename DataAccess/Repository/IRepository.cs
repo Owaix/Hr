@@ -1,9 +1,8 @@
-﻿using LT.QMS.Common.Entities;
-using System;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace LT.QMS.DAL.Repository
+namespace DataAccess.Repository
 {
     public interface IRepository<T> where T : BaseEntity
     {

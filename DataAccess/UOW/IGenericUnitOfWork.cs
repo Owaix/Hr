@@ -1,8 +1,7 @@
-﻿using System.Data.Entity;
-using LT.QMS.Common.Entities;
-using LT.QMS.DAL.Repository;
+﻿using DataAccess.Repository;
+using System.Data.Entity;
 
-namespace LT.QMS.DAL.UOW
+namespace DataAccess.UOW
 {
     public interface IGenericUnitOfWork
     {

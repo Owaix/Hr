@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 
-namespace Com.LT.Scheduler
+namespace Common.Extensions
 {
 
     public static class EntityExtensions
@@ -30,7 +30,7 @@ namespace Com.LT.Scheduler
 
         public static string ToJSON<T>(this List<T> obj) => new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(obj);
 
-        public static string ToHtmlTable<T>(this List<T> obj, bool selectAll, string tableAttr = "", string tableStyle = "border-collapse: collapse; font-family:Arial;", string rowStyle = "",string thStyle= "background-color:#006CC2; color:white; padding:10px;", string tdStyle = "border-bottom:solid 1px #aaa; padding: 10px;")
+        public static string ToHtmlTable<T>(this List<T> obj, bool selectAll, string tableAttr = "", string tableStyle = "border-collapse: collapse; font-family:Arial;", string rowStyle = "", string thStyle = "background-color:#006CC2; color:white; padding:10px;", string tdStyle = "border-bottom:solid 1px #aaa; padding: 10px;")
         {
             System.Text.StringBuilder htmlTable = new System.Text.StringBuilder();
             htmlTable.Append($"<table {tableAttr} style=\" { tableStyle } \">");
@@ -55,7 +55,7 @@ namespace Com.LT.Scheduler
         }
 
 
-         public static string ToEmailTable<T>(this List<T> obj, bool selectAll,string headerDetails ,string tableAttr = "", string tableStyle = "font-family:Arial;text-align:center;border:solid 2px #aaa;", string rowStyle = "background-color:lightgray;", string thStyle= "background-color:#006cc2;color:white;padding:20px;font-size:18px;", string tdStyle = "border-bottom:solid 1px #aaa; padding: 10px;")
+        public static string ToEmailTable<T>(this List<T> obj, bool selectAll, string headerDetails, string tableAttr = "", string tableStyle = "font-family:Arial;text-align:center;border:solid 2px #aaa;", string rowStyle = "background-color:lightgray;", string thStyle = "background-color:#006cc2;color:white;padding:20px;font-size:18px;", string tdStyle = "border-bottom:solid 1px #aaa; padding: 10px;")
         {
             int counter = 0;
             System.Text.StringBuilder htmlTable = new System.Text.StringBuilder();
@@ -67,7 +67,7 @@ namespace Com.LT.Scheduler
             {
                 counter++;
                 DisplayNameAttribute displayAttribute = ((DisplayNameAttribute)rowHeader.GetCustomAttribute(typeof(DisplayNameAttribute), true));
-                if (counter==1)
+                if (counter == 1)
                 {
                     htmlTable.Append($"<th  style=\"border-right:0px;color:black;padding:20px;\">{(displayAttribute == null ? rowHeader.Name : displayAttribute.DisplayName)}</th>");
                 }
@@ -533,5 +533,9 @@ namespace Com.LT.Scheduler
             catch (Exception ex) { throw ex; }
         }
         #endregion
+    }
+    public class Entity
+    {
+        public static object SqlOperation { get; set; }
     }
 }

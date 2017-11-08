@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Companies.cs" />
+    <Compile Include="Employees.cs" />
     <Compile Include="HrContext.cs" />
     <Compile Include="Migrations\201710201057328_new.cs" />
     <Compile Include="Migrations\201710201057328_new.Designer.cs">

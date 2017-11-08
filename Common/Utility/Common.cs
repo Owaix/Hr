@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LT.QMS.Common.Utility
+namespace Common.Utility
 {
     public class Common
     {

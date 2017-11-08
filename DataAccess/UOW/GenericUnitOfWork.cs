@@ -1,12 +1,11 @@
-﻿using LT.QMS.Common.Entities;
-using LT.QMS.DAL.Repository;
+﻿using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
-namespace LT.QMS.DAL.UOW
+namespace DataAccess.UOW
 {
     public class GenericUnitOfWork : IDisposable, IGenericUnitOfWork
     {

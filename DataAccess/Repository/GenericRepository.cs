@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using LT.QMS.Common.Entities;
 
-namespace LT.QMS.DAL.Repository
+namespace DataAccess.Repository
 {
     class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {

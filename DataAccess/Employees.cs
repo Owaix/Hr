@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace Com.LT.Scheduler.Entities
+namespace DataAccess
 {
     /// <summary>
     /// Employees Entity Model
